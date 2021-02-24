@@ -1,0 +1,6381 @@
+
+æ(Ï(
+:
+Add
+x"T
+y"T
+z"T"
+Ttype:
+2	
+W
+AddN
+inputs"T*N
+sum"T"
+Nint(0"!
+Ttype:
+2	€
+î
+	ApplyAdam
+var"T€	
+m"T€	
+v"T€
+beta1_power"T
+beta2_power"T
+lr"T
+
+beta1"T
+
+beta2"T
+epsilon"T	
+grad"T
+out"T€" 
+Ttype:
+2	"
+use_lockingbool( "
+use_nesterovbool( 
+x
+Assign
+ref"T€
+
+value"T
+
+output_ref"T€"	
+Ttype"
+validate_shapebool("
+use_lockingbool(˜
+~
+BiasAdd
+
+value"T	
+bias"T
+output"T" 
+Ttype:
+2	"-
+data_formatstringNHWC:
+NHWCNCHW
+~
+BiasAddGrad
+out_backprop"T
+output"T" 
+Ttype:
+2	"-
+data_formatstringNHWC:
+NHWCNCHW
+R
+BroadcastGradientArgs
+s0"T
+s1"T
+r0"T
+r1"T"
+Ttype0:
+2	
+N
+Cast	
+x"SrcT	
+y"DstT"
+SrcTtype"
+DstTtype"
+Truncatebool( 
+h
+ConcatV2
+values"T*N
+axis"Tidx
+output"T"
+Nint(0"	
+Ttype"
+Tidxtype0:
+2	
+8
+Const
+output"dtype"
+valuetensor"
+dtypetype
+S
+DynamicStitch
+indices*N
+data"T*N
+merged"T"
+Nint(0"	
+Ttype
+B
+Equal
+x"T
+y"T
+z
+"
+Ttype:
+2	
+
+W
+
+ExpandDims
+
+input"T
+dim"Tdim
+output"T"	
+Ttype"
+Tdimtype0:
+2	
+^
+Fill
+dims"
+index_type
+
+value"T
+output"T"	
+Ttype"
+
+index_typetype0:
+2	
+,
+Floor
+x"T
+y"T"
+Ttype:
+2
+?
+FloorDiv
+x"T
+y"T
+z"T"
+Ttype:
+2	
+9
+FloorMod
+x"T
+y"T
+z"T"
+Ttype:
+
+2	
+–
+GatherV2
+params"Tparams
+indices"Tindices
+axis"Taxis
+output"Tparams"
+Tparamstype"
+Tindicestype:
+2	"
+Taxistype:
+2	
+B
+GreaterEqual
+x"T
+y"T
+z
+"
+Ttype:
+2	
+.
+Identity
+
+input"T
+output"T"	
+Ttype
+:
+InvertPermutation
+x"T
+y"T"
+Ttype0:
+2	
+2
+L2Loss
+t"T
+output"T"
+Ttype:
+2
+q
+MatMul
+a"T
+b"T
+product"T"
+transpose_abool( "
+transpose_bbool( "
+Ttype:
+
+2	
+Œ
+Max
+
+input"T
+reduction_indices"Tidx
+output"T"
+	keep_dimsbool( " 
+Ttype:
+2	"
+Tidxtype0:
+2	
+;
+Maximum
+x"T
+y"T
+z"T"
+Ttype:
+
+2	
+
+Mean
+
+input"T
+reduction_indices"Tidx
+output"T"
+	keep_dimsbool( " 
+Ttype:
+2	"
+Tidxtype0:
+2	
+N
+Merge
+inputs"T*N
+output"T
+value_index"	
+Ttype"
+Nint(0
+=
+Mul
+x"T
+y"T
+z"T"
+Ttype:
+2	
+.
+Neg
+x"T
+y"T"
+Ttype:
+
+2	
+
+NoOp
+M
+Pack
+values"T*N
+output"T"
+Nint(0"	
+Ttype"
+axisint 
+C
+Placeholder
+output"dtype"
+dtypetype"
+shapeshape:
+X
+PlaceholderWithDefault
+input"dtype
+output"dtype"
+dtypetype"
+shapeshape
+
+Prod
+
+input"T
+reduction_indices"Tidx
+output"T"
+	keep_dimsbool( " 
+Ttype:
+2	"
+Tidxtype0:
+2	
+~
+RandomUniform
+
+shape"T
+output"dtype"
+seedint "
+seed2int "
+dtypetype:
+2"
+Ttype:
+2	ˆ
+a
+Range
+start"Tidx
+limit"Tidx
+delta"Tidx
+output"Tidx"
+Tidxtype0:	
+2	
+>
+RealDiv
+x"T
+y"T
+z"T"
+Ttype:
+2	
+E
+Relu
+features"T
+activations"T"
+Ttype:
+2	
+V
+ReluGrad
+	gradients"T
+features"T
+	backprops"T"
+Ttype:
+2	
+[
+Reshape
+tensor"T
+shape"Tshape
+output"T"	
+Ttype"
+Tshapetype0:
+2	
+o
+	RestoreV2
+
+prefix
+tensor_names
+shape_and_slices
+tensors2dtypes"
+dtypes
+list(type)(0ˆ
+.
+Rsqrt
+x"T
+y"T"
+Ttype:
+
+2
+;
+	RsqrtGrad
+y"T
+dy"T
+z"T"
+Ttype:
+
+2
+l
+SaveV2
+
+prefix
+tensor_names
+shape_and_slices
+tensors2dtypes"
+dtypes
+list(type)(0ˆ
+?
+Select
+	condition
+
+t"T
+e"T
+output"T"	
+Ttype
+P
+Shape
+
+input"T
+output"out_type"	
+Ttype"
+out_typetype0:
+2	
+1
+Square
+x"T
+y"T"
+Ttype:
+
+2	
+ö
+StridedSlice
+
+input"T
+begin"Index
+end"Index
+strides"Index
+output"T"	
+Ttype"
+Indextype:
+2	"
+
+begin_maskint "
+end_maskint "
+ellipsis_maskint "
+new_axis_maskint "
+shrink_axis_maskint 
+‡
+StridedSliceGrad
+shape"Index
+begin"Index
+end"Index
+strides"Index
+dy"T
+output"T"	
+Ttype"
+Indextype:
+2	"
+
+begin_maskint "
+end_maskint "
+ellipsis_maskint "
+new_axis_maskint "
+shrink_axis_maskint 
+:
+Sub
+x"T
+y"T
+z"T"
+Ttype:
+2	
+Œ
+Sum
+
+input"T
+reduction_indices"Tidx
+output"T"
+	keep_dimsbool( " 
+Ttype:
+2	"
+Tidxtype0:
+2	
+M
+Switch	
+data"T
+pred
+
+output_false"T
+output_true"T"	
+Ttype
+c
+Tile
+
+input"T
+	multiples"
+Tmultiples
+output"T"	
+Ttype"
+
+Tmultiplestype0:
+2	
+P
+	Transpose
+x"T
+perm"Tperm
+y"T"	
+Ttype"
+Tpermtype0:
+2	
+s
+
+VariableV2
+ref"dtype€"
+shapeshape"
+dtypetype"
+	containerstring "
+shared_namestring ˆ*1.13.12
+b'unknown'„À	
+d
+aPlaceholder*
+shape:ÿÿÿÿÿÿÿÿÿ**
+dtype0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+~
+bPlaceholder*
+dtype0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*)
+shape :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+^
+PlaceholderWithDefault/inputConst*
+value	B
+ Z *
+dtype0
+*
+_output_shapes
+: 
+€
+PlaceholderWithDefaultPlaceholderWithDefaultPlaceholderWithDefault/input*
+shape: *
+dtype0
+*
+_output_shapes
+: 
+µ
+8hidden_layer_a_0/kernel/Initializer/random_uniform/shapeConst**
+_class 
+loc:@hidden_layer_a_0/kernel*
+valueB"*      *
+dtype0*
+_output_shapes
+:
+§
+6hidden_layer_a_0/kernel/Initializer/random_uniform/minConst**
+_class 
+loc:@hidden_layer_a_0/kernel*
+valueB
+ *õL¾*
+dtype0*
+_output_shapes
+: 
+§
+6hidden_layer_a_0/kernel/Initializer/random_uniform/maxConst**
+_class 
+loc:@hidden_layer_a_0/kernel*
+valueB
+ *õL>*
+dtype0*
+_output_shapes
+: 
+‡
+@hidden_layer_a_0/kernel/Initializer/random_uniform/RandomUniformRandomUniform8hidden_layer_a_0/kernel/Initializer/random_uniform/shape*
+
+seed *
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+seed2 *
+dtype0*
+_output_shapes
+:	*€
+ú
+6hidden_layer_a_0/kernel/Initializer/random_uniform/subSub6hidden_layer_a_0/kernel/Initializer/random_uniform/max6hidden_layer_a_0/kernel/Initializer/random_uniform/min*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+_output_shapes
+: 
+
+6hidden_layer_a_0/kernel/Initializer/random_uniform/mulMul@hidden_layer_a_0/kernel/Initializer/random_uniform/RandomUniform6hidden_layer_a_0/kernel/Initializer/random_uniform/sub*
+_output_shapes
+:	*€*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel
+ÿ
+2hidden_layer_a_0/kernel/Initializer/random_uniformAdd6hidden_layer_a_0/kernel/Initializer/random_uniform/mul6hidden_layer_a_0/kernel/Initializer/random_uniform/min*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+_output_shapes
+:	*€
+¹
+hidden_layer_a_0/kernel
+VariableV2*
+_output_shapes
+:	*€*
+shared_name **
+_class 
+loc:@hidden_layer_a_0/kernel*
+	container *
+shape:	*€*
+dtype0
+ô
+hidden_layer_a_0/kernel/AssignAssignhidden_layer_a_0/kernel2hidden_layer_a_0/kernel/Initializer/random_uniform**
+_class 
+loc:@hidden_layer_a_0/kernel*
+validate_shape(*
+_output_shapes
+:	*€*
+use_locking(*
+T0
+—
+hidden_layer_a_0/kernel/readIdentityhidden_layer_a_0/kernel*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+_output_shapes
+:	*€
+}
+8hidden_layer_a_0/kernel/Regularizer/l2_regularizer/scaleConst*
+valueB
+ *o;*
+dtype0*
+_output_shapes
+: 
+‚
+9hidden_layer_a_0/kernel/Regularizer/l2_regularizer/L2LossL2Losshidden_layer_a_0/kernel/read*
+T0*
+_output_shapes
+: 
+Ï
+2hidden_layer_a_0/kernel/Regularizer/l2_regularizerMul8hidden_layer_a_0/kernel/Regularizer/l2_regularizer/scale9hidden_layer_a_0/kernel/Regularizer/l2_regularizer/L2Loss*
+T0*
+_output_shapes
+: 
+ 
+'hidden_layer_a_0/bias/Initializer/zerosConst*
+_output_shapes	
+:€*(
+_class
+loc:@hidden_layer_a_0/bias*
+valueB€*    *
+dtype0
+­
+hidden_layer_a_0/bias
+VariableV2*
+shared_name *(
+_class
+loc:@hidden_layer_a_0/bias*
+	container *
+shape:€*
+dtype0*
+_output_shapes	
+:€
+ß
+hidden_layer_a_0/bias/AssignAssignhidden_layer_a_0/bias'hidden_layer_a_0/bias/Initializer/zeros*(
+_class
+loc:@hidden_layer_a_0/bias*
+validate_shape(*
+_output_shapes	
+:€*
+use_locking(*
+T0
+
+hidden_layer_a_0/bias/readIdentityhidden_layer_a_0/bias*(
+_class
+loc:@hidden_layer_a_0/bias*
+_output_shapes	
+:€*
+T0
+›
+hidden_layer_a_0/MatMulMatMulahidden_layer_a_0/kernel/read*
+T0*
+transpose_a( *(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+transpose_b( 
+¢
+hidden_layer_a_0/BiasAddBiasAddhidden_layer_a_0/MatMulhidden_layer_a_0/bias/read*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0*
+data_formatNHWC
+j
+hidden_layer_a_0/ReluReluhidden_layer_a_0/BiasAdd*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+p
+dropout/cond/SwitchSwitchPlaceholderWithDefaultPlaceholderWithDefault*
+_output_shapes
+: : *
+T0
+
+Y
+dropout/cond/switch_tIdentitydropout/cond/Switch:1*
+T0
+*
+_output_shapes
+: 
+W
+dropout/cond/switch_fIdentitydropout/cond/Switch*
+_output_shapes
+: *
+T0
+
+Y
+dropout/cond/pred_idIdentityPlaceholderWithDefault*
+T0
+*
+_output_shapes
+: 
+v
+dropout/cond/dropout/rateConst^dropout/cond/switch_t*
+valueB
+ *ÍÌL>*
+dtype0*
+_output_shapes
+: 
+}
+dropout/cond/dropout/ShapeShape#dropout/cond/dropout/Shape/Switch:1*
+_output_shapes
+:*
+T0*
+out_type0
+É
+!dropout/cond/dropout/Shape/SwitchSwitchhidden_layer_a_0/Reludropout/cond/pred_id*
+T0*(
+_class
+loc:@hidden_layer_a_0/Relu*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€
+w
+dropout/cond/dropout/sub/xConst^dropout/cond/switch_t*
+valueB
+ *  €?*
+dtype0*
+_output_shapes
+: 
+w
+dropout/cond/dropout/subSubdropout/cond/dropout/sub/xdropout/cond/dropout/rate*
+T0*
+_output_shapes
+: 
+„
+'dropout/cond/dropout/random_uniform/minConst^dropout/cond/switch_t*
+_output_shapes
+: *
+valueB
+ *    *
+dtype0
+„
+'dropout/cond/dropout/random_uniform/maxConst^dropout/cond/switch_t*
+_output_shapes
+: *
+valueB
+ *  €?*
+dtype0
+·
+1dropout/cond/dropout/random_uniform/RandomUniformRandomUniformdropout/cond/dropout/Shape*
+dtype0*
+seed2 *(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+
+seed *
+T0
+¡
+'dropout/cond/dropout/random_uniform/subSub'dropout/cond/dropout/random_uniform/max'dropout/cond/dropout/random_uniform/min*
+T0*
+_output_shapes
+: 
+½
+'dropout/cond/dropout/random_uniform/mulMul1dropout/cond/dropout/random_uniform/RandomUniform'dropout/cond/dropout/random_uniform/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¯
+#dropout/cond/dropout/random_uniformAdd'dropout/cond/dropout/random_uniform/mul'dropout/cond/dropout/random_uniform/min*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+‘
+dropout/cond/dropout/addAdddropout/cond/dropout/sub#dropout/cond/dropout/random_uniform*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+p
+dropout/cond/dropout/FloorFloordropout/cond/dropout/add*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+™
+dropout/cond/dropout/truedivRealDiv#dropout/cond/dropout/Shape/Switch:1dropout/cond/dropout/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Œ
+dropout/cond/dropout/mulMuldropout/cond/dropout/truedivdropout/cond/dropout/Floor*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+r
+dropout/cond/IdentityIdentitydropout/cond/Identity/Switch*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ä
+dropout/cond/Identity/SwitchSwitchhidden_layer_a_0/Reludropout/cond/pred_id*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€*
+T0*(
+_class
+loc:@hidden_layer_a_0/Relu
+Š
+dropout/cond/MergeMergedropout/cond/Identitydropout/cond/dropout/mul*
+T0*
+N**
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€: 
+µ
+8hidden_layer_a_1/kernel/Initializer/random_uniform/shapeConst*
+_output_shapes
+:**
+_class 
+loc:@hidden_layer_a_1/kernel*
+valueB"   €   *
+dtype0
+§
+6hidden_layer_a_1/kernel/Initializer/random_uniform/minConst**
+_class 
+loc:@hidden_layer_a_1/kernel*
+valueB
+ *   ¾*
+dtype0*
+_output_shapes
+: 
+§
+6hidden_layer_a_1/kernel/Initializer/random_uniform/maxConst**
+_class 
+loc:@hidden_layer_a_1/kernel*
+valueB
+ *   >*
+dtype0*
+_output_shapes
+: 
+ˆ
+@hidden_layer_a_1/kernel/Initializer/random_uniform/RandomUniformRandomUniform8hidden_layer_a_1/kernel/Initializer/random_uniform/shape**
+_class 
+loc:@hidden_layer_a_1/kernel*
+seed2 *
+dtype0* 
+_output_shapes
+:
+€€*
+
+seed *
+T0
+ú
+6hidden_layer_a_1/kernel/Initializer/random_uniform/subSub6hidden_layer_a_1/kernel/Initializer/random_uniform/max6hidden_layer_a_1/kernel/Initializer/random_uniform/min**
+_class 
+loc:@hidden_layer_a_1/kernel*
+_output_shapes
+: *
+T0
+
+6hidden_layer_a_1/kernel/Initializer/random_uniform/mulMul@hidden_layer_a_1/kernel/Initializer/random_uniform/RandomUniform6hidden_layer_a_1/kernel/Initializer/random_uniform/sub**
+_class 
+loc:@hidden_layer_a_1/kernel* 
+_output_shapes
+:
+€€*
+T0
+€
+2hidden_layer_a_1/kernel/Initializer/random_uniformAdd6hidden_layer_a_1/kernel/Initializer/random_uniform/mul6hidden_layer_a_1/kernel/Initializer/random_uniform/min*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel* 
+_output_shapes
+:
+€€
+»
+hidden_layer_a_1/kernel
+VariableV2*
+shared_name **
+_class 
+loc:@hidden_layer_a_1/kernel*
+	container *
+shape:
+€€*
+dtype0* 
+_output_shapes
+:
+€€
+õ
+hidden_layer_a_1/kernel/AssignAssignhidden_layer_a_1/kernel2hidden_layer_a_1/kernel/Initializer/random_uniform*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel*
+validate_shape(* 
+_output_shapes
+:
+€€*
+use_locking(
+˜
+hidden_layer_a_1/kernel/readIdentityhidden_layer_a_1/kernel*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel* 
+_output_shapes
+:
+€€
+}
+8hidden_layer_a_1/kernel/Regularizer/l2_regularizer/scaleConst*
+_output_shapes
+: *
+valueB
+ *o;*
+dtype0
+‚
+9hidden_layer_a_1/kernel/Regularizer/l2_regularizer/L2LossL2Losshidden_layer_a_1/kernel/read*
+T0*
+_output_shapes
+: 
+Ï
+2hidden_layer_a_1/kernel/Regularizer/l2_regularizerMul8hidden_layer_a_1/kernel/Regularizer/l2_regularizer/scale9hidden_layer_a_1/kernel/Regularizer/l2_regularizer/L2Loss*
+T0*
+_output_shapes
+: 
+ 
+'hidden_layer_a_1/bias/Initializer/zerosConst*
+_output_shapes	
+:€*(
+_class
+loc:@hidden_layer_a_1/bias*
+valueB€*    *
+dtype0
+­
+hidden_layer_a_1/bias
+VariableV2*
+shared_name *(
+_class
+loc:@hidden_layer_a_1/bias*
+	container *
+shape:€*
+dtype0*
+_output_shapes	
+:€
+ß
+hidden_layer_a_1/bias/AssignAssignhidden_layer_a_1/bias'hidden_layer_a_1/bias/Initializer/zeros*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias*
+validate_shape(*
+_output_shapes	
+:€
+
+hidden_layer_a_1/bias/readIdentityhidden_layer_a_1/bias*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias*
+_output_shapes	
+:€
+¬
+hidden_layer_a_1/MatMulMatMuldropout/cond/Mergehidden_layer_a_1/kernel/read*
+T0*
+transpose_a( *(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+transpose_b( 
+¢
+hidden_layer_a_1/BiasAddBiasAddhidden_layer_a_1/MatMulhidden_layer_a_1/bias/read*
+T0*
+data_formatNHWC*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+j
+hidden_layer_a_1/ReluReluhidden_layer_a_1/BiasAdd*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+r
+dropout_1/cond/SwitchSwitchPlaceholderWithDefaultPlaceholderWithDefault*
+_output_shapes
+: : *
+T0
+
+]
+dropout_1/cond/switch_tIdentitydropout_1/cond/Switch:1*
+T0
+*
+_output_shapes
+: 
+[
+dropout_1/cond/switch_fIdentitydropout_1/cond/Switch*
+_output_shapes
+: *
+T0
+
+[
+dropout_1/cond/pred_idIdentityPlaceholderWithDefault*
+T0
+*
+_output_shapes
+: 
+z
+dropout_1/cond/dropout/rateConst^dropout_1/cond/switch_t*
+valueB
+ *ÍÌL>*
+dtype0*
+_output_shapes
+: 
+
+dropout_1/cond/dropout/ShapeShape%dropout_1/cond/dropout/Shape/Switch:1*
+_output_shapes
+:*
+T0*
+out_type0
+Í
+#dropout_1/cond/dropout/Shape/SwitchSwitchhidden_layer_a_1/Reludropout_1/cond/pred_id*
+T0*(
+_class
+loc:@hidden_layer_a_1/Relu*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€
+{
+dropout_1/cond/dropout/sub/xConst^dropout_1/cond/switch_t*
+valueB
+ *  €?*
+dtype0*
+_output_shapes
+: 
+}
+dropout_1/cond/dropout/subSubdropout_1/cond/dropout/sub/xdropout_1/cond/dropout/rate*
+_output_shapes
+: *
+T0
+ˆ
+)dropout_1/cond/dropout/random_uniform/minConst^dropout_1/cond/switch_t*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+ˆ
+)dropout_1/cond/dropout/random_uniform/maxConst^dropout_1/cond/switch_t*
+valueB
+ *  €?*
+dtype0*
+_output_shapes
+: 
+»
+3dropout_1/cond/dropout/random_uniform/RandomUniformRandomUniformdropout_1/cond/dropout/Shape*
+seed2 *(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+
+seed *
+T0*
+dtype0
+§
+)dropout_1/cond/dropout/random_uniform/subSub)dropout_1/cond/dropout/random_uniform/max)dropout_1/cond/dropout/random_uniform/min*
+T0*
+_output_shapes
+: 
+Ã
+)dropout_1/cond/dropout/random_uniform/mulMul3dropout_1/cond/dropout/random_uniform/RandomUniform)dropout_1/cond/dropout/random_uniform/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+µ
+%dropout_1/cond/dropout/random_uniformAdd)dropout_1/cond/dropout/random_uniform/mul)dropout_1/cond/dropout/random_uniform/min*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+—
+dropout_1/cond/dropout/addAdddropout_1/cond/dropout/sub%dropout_1/cond/dropout/random_uniform*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+t
+dropout_1/cond/dropout/FloorFloordropout_1/cond/dropout/add*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ÿ
+dropout_1/cond/dropout/truedivRealDiv%dropout_1/cond/dropout/Shape/Switch:1dropout_1/cond/dropout/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+’
+dropout_1/cond/dropout/mulMuldropout_1/cond/dropout/truedivdropout_1/cond/dropout/Floor*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+v
+dropout_1/cond/IdentityIdentitydropout_1/cond/Identity/Switch*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+È
+dropout_1/cond/Identity/SwitchSwitchhidden_layer_a_1/Reludropout_1/cond/pred_id*(
+_class
+loc:@hidden_layer_a_1/Relu*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€*
+T0
+
+dropout_1/cond/MergeMergedropout_1/cond/Identitydropout_1/cond/dropout/mul*
+T0*
+N**
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€: 
+¯
+5embed_layer_a/kernel/Initializer/random_uniform/shapeConst*'
+_class
+loc:@embed_layer_a/kernel*
+valueB"€      *
+dtype0*
+_output_shapes
+:
+¡
+3embed_layer_a/kernel/Initializer/random_uniform/minConst*'
+_class
+loc:@embed_layer_a/kernel*
+valueB
+ *Ü-N¾*
+dtype0*
+_output_shapes
+: 
+¡
+3embed_layer_a/kernel/Initializer/random_uniform/maxConst*'
+_class
+loc:@embed_layer_a/kernel*
+valueB
+ *Ü-N>*
+dtype0*
+_output_shapes
+: 
+ş
+=embed_layer_a/kernel/Initializer/random_uniform/RandomUniformRandomUniform5embed_layer_a/kernel/Initializer/random_uniform/shape*
+dtype0*
+_output_shapes
+:	€*
+
+seed *
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+seed2 
+î
+3embed_layer_a/kernel/Initializer/random_uniform/subSub3embed_layer_a/kernel/Initializer/random_uniform/max3embed_layer_a/kernel/Initializer/random_uniform/min*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+_output_shapes
+: 
+
+3embed_layer_a/kernel/Initializer/random_uniform/mulMul=embed_layer_a/kernel/Initializer/random_uniform/RandomUniform3embed_layer_a/kernel/Initializer/random_uniform/sub*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+_output_shapes
+:	€
+ó
+/embed_layer_a/kernel/Initializer/random_uniformAdd3embed_layer_a/kernel/Initializer/random_uniform/mul3embed_layer_a/kernel/Initializer/random_uniform/min*'
+_class
+loc:@embed_layer_a/kernel*
+_output_shapes
+:	€*
+T0
+³
+embed_layer_a/kernel
+VariableV2*
+shared_name *'
+_class
+loc:@embed_layer_a/kernel*
+	container *
+shape:	€*
+dtype0*
+_output_shapes
+:	€
+è
+embed_layer_a/kernel/AssignAssignembed_layer_a/kernel/embed_layer_a/kernel/Initializer/random_uniform*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+validate_shape(*
+_output_shapes
+:	€
+
+embed_layer_a/kernel/readIdentityembed_layer_a/kernel*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+_output_shapes
+:	€
+z
+5embed_layer_a/kernel/Regularizer/l2_regularizer/scaleConst*
+valueB
+ *o;*
+dtype0*
+_output_shapes
+: 
+|
+6embed_layer_a/kernel/Regularizer/l2_regularizer/L2LossL2Lossembed_layer_a/kernel/read*
+_output_shapes
+: *
+T0
+Æ
+/embed_layer_a/kernel/Regularizer/l2_regularizerMul5embed_layer_a/kernel/Regularizer/l2_regularizer/scale6embed_layer_a/kernel/Regularizer/l2_regularizer/L2Loss*
+T0*
+_output_shapes
+: 
+˜
+$embed_layer_a/bias/Initializer/zerosConst*%
+_class
+loc:@embed_layer_a/bias*
+valueB*    *
+dtype0*
+_output_shapes
+:
+¥
+embed_layer_a/bias
+VariableV2*
+	container *
+shape:*
+dtype0*
+_output_shapes
+:*
+shared_name *%
+_class
+loc:@embed_layer_a/bias
+Ò
+embed_layer_a/bias/AssignAssignembed_layer_a/bias$embed_layer_a/bias/Initializer/zeros*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+:
+ƒ
+embed_layer_a/bias/readIdentityembed_layer_a/bias*%
+_class
+loc:@embed_layer_a/bias*
+_output_shapes
+:*
+T0
+§
+embed_layer_a/MatMulMatMuldropout_1/cond/Mergeembed_layer_a/kernel/read*
+transpose_a( *'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+transpose_b( *
+T0
+˜
+embed_layer_a/BiasAddBiasAddembed_layer_a/MatMulembed_layer_a/bias/read*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*
+data_formatNHWC
+¯
+5embed_layer_b/kernel/Initializer/random_uniform/shapeConst*'
+_class
+loc:@embed_layer_b/kernel*
+valueB"      *
+dtype0*
+_output_shapes
+:
+¡
+3embed_layer_b/kernel/Initializer/random_uniform/minConst*'
+_class
+loc:@embed_layer_b/kernel*
+valueB
+ *ôôõ¾*
+dtype0*
+_output_shapes
+: 
+¡
+3embed_layer_b/kernel/Initializer/random_uniform/maxConst*'
+_class
+loc:@embed_layer_b/kernel*
+valueB
+ *ôôõ>*
+dtype0*
+_output_shapes
+: 
+ı
+=embed_layer_b/kernel/Initializer/random_uniform/RandomUniformRandomUniform5embed_layer_b/kernel/Initializer/random_uniform/shape*
+dtype0*
+_output_shapes
+
+:*
+
+seed *
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+seed2 
+î
+3embed_layer_b/kernel/Initializer/random_uniform/subSub3embed_layer_b/kernel/Initializer/random_uniform/max3embed_layer_b/kernel/Initializer/random_uniform/min*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+_output_shapes
+: 
+€
+3embed_layer_b/kernel/Initializer/random_uniform/mulMul=embed_layer_b/kernel/Initializer/random_uniform/RandomUniform3embed_layer_b/kernel/Initializer/random_uniform/sub*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+_output_shapes
+
+:
+ò
+/embed_layer_b/kernel/Initializer/random_uniformAdd3embed_layer_b/kernel/Initializer/random_uniform/mul3embed_layer_b/kernel/Initializer/random_uniform/min*
+_output_shapes
+
+:*
+T0*'
+_class
+loc:@embed_layer_b/kernel
+±
+embed_layer_b/kernel
+VariableV2*
+dtype0*
+_output_shapes
+
+:*
+shared_name *'
+_class
+loc:@embed_layer_b/kernel*
+	container *
+shape
+:
+ç
+embed_layer_b/kernel/AssignAssignembed_layer_b/kernel/embed_layer_b/kernel/Initializer/random_uniform*
+_output_shapes
+
+:*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+validate_shape(
+
+embed_layer_b/kernel/readIdentityembed_layer_b/kernel*'
+_class
+loc:@embed_layer_b/kernel*
+_output_shapes
+
+:*
+T0
+z
+5embed_layer_b/kernel/Regularizer/l2_regularizer/scaleConst*
+valueB
+ *o;*
+dtype0*
+_output_shapes
+: 
+|
+6embed_layer_b/kernel/Regularizer/l2_regularizer/L2LossL2Lossembed_layer_b/kernel/read*
+_output_shapes
+: *
+T0
+Æ
+/embed_layer_b/kernel/Regularizer/l2_regularizerMul5embed_layer_b/kernel/Regularizer/l2_regularizer/scale6embed_layer_b/kernel/Regularizer/l2_regularizer/L2Loss*
+_output_shapes
+: *
+T0
+˜
+$embed_layer_b/bias/Initializer/zerosConst*%
+_class
+loc:@embed_layer_b/bias*
+valueB*    *
+dtype0*
+_output_shapes
+:
+¥
+embed_layer_b/bias
+VariableV2*
+shape:*
+dtype0*
+_output_shapes
+:*
+shared_name *%
+_class
+loc:@embed_layer_b/bias*
+	container 
+Ò
+embed_layer_b/bias/AssignAssignembed_layer_b/bias$embed_layer_b/bias/Initializer/zeros*%
+_class
+loc:@embed_layer_b/bias*
+validate_shape(*
+_output_shapes
+:*
+use_locking(*
+T0
+ƒ
+embed_layer_b/bias/readIdentityembed_layer_b/bias*
+_output_shapes
+:*
+T0*%
+_class
+loc:@embed_layer_b/bias
+f
+embed_layer_b/Tensordot/axesConst*
+valueB:*
+dtype0*
+_output_shapes
+:
+m
+embed_layer_b/Tensordot/freeConst*
+valueB"       *
+dtype0*
+_output_shapes
+:
+^
+embed_layer_b/Tensordot/ShapeShapeb*
+T0*
+out_type0*
+_output_shapes
+:
+g
+%embed_layer_b/Tensordot/GatherV2/axisConst*
+value	B : *
+dtype0*
+_output_shapes
+: 
+Ø
+ embed_layer_b/Tensordot/GatherV2GatherV2embed_layer_b/Tensordot/Shapeembed_layer_b/Tensordot/free%embed_layer_b/Tensordot/GatherV2/axis*
+Tindices0*
+Tparams0*
+_output_shapes
+:*
+Taxis0
+i
+'embed_layer_b/Tensordot/GatherV2_1/axisConst*
+value	B : *
+dtype0*
+_output_shapes
+: 
+Ü
+"embed_layer_b/Tensordot/GatherV2_1GatherV2embed_layer_b/Tensordot/Shapeembed_layer_b/Tensordot/axes'embed_layer_b/Tensordot/GatherV2_1/axis*
+_output_shapes
+:*
+Taxis0*
+Tindices0*
+Tparams0
+g
+embed_layer_b/Tensordot/ConstConst*
+valueB: *
+dtype0*
+_output_shapes
+:
+£
+embed_layer_b/Tensordot/ProdProd embed_layer_b/Tensordot/GatherV2embed_layer_b/Tensordot/Const*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+: 
+i
+embed_layer_b/Tensordot/Const_1Const*
+valueB: *
+dtype0*
+_output_shapes
+:
+©
+embed_layer_b/Tensordot/Prod_1Prod"embed_layer_b/Tensordot/GatherV2_1embed_layer_b/Tensordot/Const_1*
+T0*
+_output_shapes
+: *
+
+Tidx0*
+	keep_dims( 
+e
+#embed_layer_b/Tensordot/concat/axisConst*
+value	B : *
+dtype0*
+_output_shapes
+: 
+Å
+embed_layer_b/Tensordot/concatConcatV2embed_layer_b/Tensordot/freeembed_layer_b/Tensordot/axes#embed_layer_b/Tensordot/concat/axis*
+T0*
+N*
+_output_shapes
+:*
+
+Tidx0
+
+embed_layer_b/Tensordot/stackPackembed_layer_b/Tensordot/Prodembed_layer_b/Tensordot/Prod_1*
+_output_shapes
+:*
+T0*
+
+axis *
+N
+
+!embed_layer_b/Tensordot/transpose	Transposebembed_layer_b/Tensordot/concat*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+Tperm0*
+T0
+µ
+embed_layer_b/Tensordot/ReshapeReshape!embed_layer_b/Tensordot/transposeembed_layer_b/Tensordot/stack*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+y
+(embed_layer_b/Tensordot/transpose_1/permConst*
+valueB"       *
+dtype0*
+_output_shapes
+:
+«
+#embed_layer_b/Tensordot/transpose_1	Transposeembed_layer_b/kernel/read(embed_layer_b/Tensordot/transpose_1/perm*
+_output_shapes
+
+:*
+Tperm0*
+T0
+x
+'embed_layer_b/Tensordot/Reshape_1/shapeConst*
+valueB"      *
+dtype0*
+_output_shapes
+:
+±
+!embed_layer_b/Tensordot/Reshape_1Reshape#embed_layer_b/Tensordot/transpose_1'embed_layer_b/Tensordot/Reshape_1/shape*
+_output_shapes
+
+:*
+T0*
+Tshape0
+Ä
+embed_layer_b/Tensordot/MatMulMatMulembed_layer_b/Tensordot/Reshape!embed_layer_b/Tensordot/Reshape_1*
+transpose_a( *'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+transpose_b( *
+T0
+i
+embed_layer_b/Tensordot/Const_2Const*
+valueB:*
+dtype0*
+_output_shapes
+:
+g
+%embed_layer_b/Tensordot/concat_1/axisConst*
+value	B : *
+dtype0*
+_output_shapes
+: 
+Ğ
+ embed_layer_b/Tensordot/concat_1ConcatV2 embed_layer_b/Tensordot/GatherV2embed_layer_b/Tensordot/Const_2%embed_layer_b/Tensordot/concat_1/axis*
+_output_shapes
+:*
+
+Tidx0*
+T0*
+N
+±
+embed_layer_b/TensordotReshapeembed_layer_b/Tensordot/MatMul embed_layer_b/Tensordot/concat_1*
+T0*
+Tshape0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+¨
+embed_layer_b/BiasAddBiasAddembed_layer_b/Tensordotembed_layer_b/bias/read*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*
+data_formatNHWC
+f
+l2_normalize/SquareSquareembed_layer_a/BiasAdd*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+m
+"l2_normalize/Sum/reduction_indicesConst*
+_output_shapes
+: *
+valueB :
+ÿÿÿÿÿÿÿÿÿ*
+dtype0
+Ÿ
+l2_normalize/SumSuml2_normalize/Square"l2_normalize/Sum/reduction_indices*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+
+Tidx0*
+	keep_dims(*
+T0
+[
+l2_normalize/Maximum/yConst*
+valueB
+ *Ì¼Œ+*
+dtype0*
+_output_shapes
+: 
+{
+l2_normalize/MaximumMaximuml2_normalize/Suml2_normalize/Maximum/y*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+c
+l2_normalize/RsqrtRsqrtl2_normalize/Maximum*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+p
+l2_normalizeMulembed_layer_a/BiasAddl2_normalize/Rsqrt*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+u
+l2_normalize_1/SquareSquareembed_layer_b/BiasAdd*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+o
+$l2_normalize_1/Sum/reduction_indicesConst*
+valueB :
+ÿÿÿÿÿÿÿÿÿ*
+dtype0*
+_output_shapes
+: 
+²
+l2_normalize_1/SumSuml2_normalize_1/Square$l2_normalize_1/Sum/reduction_indices*
+
+Tidx0*
+	keep_dims(*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+]
+l2_normalize_1/Maximum/yConst*
+valueB
+ *Ì¼Œ+*
+dtype0*
+_output_shapes
+: 
+
+l2_normalize_1/MaximumMaximuml2_normalize_1/Suml2_normalize_1/Maximum/y*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0
+t
+l2_normalize_1/RsqrtRsqrtl2_normalize_1/Maximum*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0
+
+l2_normalize_1Mulembed_layer_b/BiasAddl2_normalize_1/Rsqrt*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0
+P
+ExpandDims/dimConst*
+_output_shapes
+: *
+value	B :*
+dtype0
+x
+
+ExpandDims
+ExpandDimsl2_normalizeExpandDims/dim*+
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+
+Tdim0*
+T0
+e
+mulMul
+ExpandDimsl2_normalize_1*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+`
+Sum/reduction_indicesConst*
+valueB :
+ÿÿÿÿÿÿÿÿÿ*
+dtype0*
+_output_shapes
+: 
+~
+SumSummulSum/reduction_indices*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+
+Tidx0*
+	keep_dims( *
+T0
+h
+strided_slice/stackConst*
+_output_shapes
+:*!
+valueB"            *
+dtype0
+j
+strided_slice/stack_1Const*!
+valueB"           *
+dtype0*
+_output_shapes
+:
+j
+strided_slice/stack_2Const*!
+valueB"         *
+dtype0*
+_output_shapes
+:
+ 
+strided_sliceStridedSlicel2_normalize_1strided_slice/stackstrided_slice/stack_1strided_slice/stack_2*
+Index0*
+T0*
+shrink_axis_mask *
+
+begin_mask*
+ellipsis_mask *
+new_axis_mask *
+end_mask*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+j
+strided_slice_1/stackConst*!
+valueB"           *
+dtype0*
+_output_shapes
+:
+l
+strided_slice_1/stack_1Const*!
+valueB"            *
+dtype0*
+_output_shapes
+:
+l
+strided_slice_1/stack_2Const*!
+valueB"         *
+dtype0*
+_output_shapes
+:
+¨
+strided_slice_1StridedSlicel2_normalize_1strided_slice_1/stackstrided_slice_1/stack_1strided_slice_1/stack_2*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*
+Index0*
+shrink_axis_mask *
+
+begin_mask*
+ellipsis_mask *
+new_axis_mask *
+end_mask
+k
+mul_1Mulstrided_slicestrided_slice_1*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+b
+Sum_1/reduction_indicesConst*
+valueB :
+ÿÿÿÿÿÿÿÿÿ*
+dtype0*
+_output_shapes
+: 
+„
+Sum_1Summul_1Sum_1/reduction_indices*
+
+Tidx0*
+	keep_dims( *
+T0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+f
+strided_slice_2/stackConst*
+valueB"        *
+dtype0*
+_output_shapes
+:
+h
+strided_slice_2/stack_1Const*
+valueB"       *
+dtype0*
+_output_shapes
+:
+h
+strided_slice_2/stack_2Const*
+valueB"      *
+dtype0*
+_output_shapes
+:
+Œ
+strided_slice_2StridedSliceSumstrided_slice_2/stackstrided_slice_2/stack_1strided_slice_2/stack_2*
+Index0*
+T0*
+shrink_axis_mask*
+
+begin_mask*
+ellipsis_mask *
+new_axis_mask *
+end_mask*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+J
+sub/xConst*
+valueB
+ *ÍÌL?*
+dtype0*
+_output_shapes
+: 
+P
+subSubsub/xstrided_slice_2*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+N
+	Maximum/xConst*
+dtype0*
+_output_shapes
+: *
+valueB
+ *    
+P
+MaximumMaximum	Maximum/xsub*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+f
+strided_slice_3/stackConst*
+valueB"       *
+dtype0*
+_output_shapes
+:
+h
+strided_slice_3/stack_1Const*
+dtype0*
+_output_shapes
+:*
+valueB"        
+h
+strided_slice_3/stack_2Const*
+valueB"      *
+dtype0*
+_output_shapes
+:
+™
+strided_slice_3StridedSliceSumstrided_slice_3/stackstrided_slice_3/stack_1strided_slice_3/stack_2*
+shrink_axis_mask *
+ellipsis_mask *
+
+begin_mask*
+new_axis_mask *
+end_mask*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*
+Index0
+`
+Max/reduction_indicesConst*
+valueB :
+ÿÿÿÿÿÿÿÿÿ*
+dtype0*
+_output_shapes
+: 
+}
+MaxMaxstrided_slice_3Max/reduction_indices*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+
+Tidx0*
+	keep_dims( *
+T0
+J
+add/xConst*
+valueB
+ *ÍÌÌ¾*
+dtype0*
+_output_shapes
+: 
+D
+addAddadd/xMax*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+P
+Maximum_1/xConst*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+T
+	Maximum_1MaximumMaximum_1/xadd*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+N
+add_1AddMaximum	Maximum_1*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+b
+Max_1/reduction_indicesConst*
+valueB :
+ÿÿÿÿÿÿÿÿÿ*
+dtype0*
+_output_shapes
+: 
+w
+Max_1MaxSum_1Max_1/reduction_indices*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+
+Tidx0*
+	keep_dims( *
+T0
+P
+Maximum_2/xConst*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+V
+	Maximum_2MaximumMaximum_2/xMax_1*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+L
+mul_2/yConst*
+dtype0*
+_output_shapes
+: *
+valueB
+ *ÍÌL?
+N
+mul_2Mul	Maximum_2mul_2/y*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+H
+add_2Addadd_1mul_2*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+O
+ConstConst*
+dtype0*
+_output_shapes
+:*
+valueB: 
+X
+MeanMeanadd_2Const*
+T0*
+_output_shapes
+: *
+
+Tidx0*
+	keep_dims( 
+•
+total_regularization_lossAddN2hidden_layer_a_0/kernel/Regularizer/l2_regularizer2hidden_layer_a_1/kernel/Regularizer/l2_regularizer/embed_layer_a/kernel/Regularizer/l2_regularizer/embed_layer_b/kernel/Regularizer/l2_regularizer*
+T0*
+N*
+_output_shapes
+: 
+N
+add_3AddMeantotal_regularization_loss*
+_output_shapes
+: *
+T0
+R
+gradients/ShapeConst*
+valueB *
+dtype0*
+_output_shapes
+: 
+X
+gradients/grad_ys_0Const*
+valueB
+ *  €?*
+dtype0*
+_output_shapes
+: 
+o
+gradients/FillFillgradients/Shapegradients/grad_ys_0*
+T0*
+
+index_type0*
+_output_shapes
+: 
+>
+%gradients/add_3_grad/tuple/group_depsNoOp^gradients/Fill
+µ
+-gradients/add_3_grad/tuple/control_dependencyIdentitygradients/Fill&^gradients/add_3_grad/tuple/group_deps*
+T0*!
+_class
+loc:@gradients/Fill*
+_output_shapes
+: 
+·
+/gradients/add_3_grad/tuple/control_dependency_1Identitygradients/Fill&^gradients/add_3_grad/tuple/group_deps*
+T0*!
+_class
+loc:@gradients/Fill*
+_output_shapes
+: 
+k
+!gradients/Mean_grad/Reshape/shapeConst*
+valueB:*
+dtype0*
+_output_shapes
+:
+«
+gradients/Mean_grad/ReshapeReshape-gradients/add_3_grad/tuple/control_dependency!gradients/Mean_grad/Reshape/shape*
+T0*
+Tshape0*
+_output_shapes
+:
+^
+gradients/Mean_grad/ShapeShapeadd_2*
+T0*
+out_type0*
+_output_shapes
+:
+˜
+gradients/Mean_grad/TileTilegradients/Mean_grad/Reshapegradients/Mean_grad/Shape*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+
+Tmultiples0
+`
+gradients/Mean_grad/Shape_1Shapeadd_2*
+_output_shapes
+:*
+T0*
+out_type0
+^
+gradients/Mean_grad/Shape_2Const*
+valueB *
+dtype0*
+_output_shapes
+: 
+c
+gradients/Mean_grad/ConstConst*
+valueB: *
+dtype0*
+_output_shapes
+:
+–
+gradients/Mean_grad/ProdProdgradients/Mean_grad/Shape_1gradients/Mean_grad/Const*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+: 
+e
+gradients/Mean_grad/Const_1Const*
+dtype0*
+_output_shapes
+:*
+valueB: 
+š
+gradients/Mean_grad/Prod_1Prodgradients/Mean_grad/Shape_2gradients/Mean_grad/Const_1*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+: 
+_
+gradients/Mean_grad/Maximum/yConst*
+value	B :*
+dtype0*
+_output_shapes
+: 
+‚
+gradients/Mean_grad/MaximumMaximumgradients/Mean_grad/Prod_1gradients/Mean_grad/Maximum/y*
+T0*
+_output_shapes
+: 
+€
+gradients/Mean_grad/floordivFloorDivgradients/Mean_grad/Prodgradients/Mean_grad/Maximum*
+_output_shapes
+: *
+T0
+~
+gradients/Mean_grad/CastCastgradients/Mean_grad/floordiv*
+
+SrcT0*
+Truncate( *
+
+DstT0*
+_output_shapes
+: 
+ˆ
+gradients/Mean_grad/truedivRealDivgradients/Mean_grad/Tilegradients/Mean_grad/Cast*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+s
+9gradients/total_regularization_loss_grad/tuple/group_depsNoOp0^gradients/add_3_grad/tuple/control_dependency_1
+ş
+Agradients/total_regularization_loss_grad/tuple/control_dependencyIdentity/gradients/add_3_grad/tuple/control_dependency_1:^gradients/total_regularization_loss_grad/tuple/group_deps*
+T0*!
+_class
+loc:@gradients/Fill*
+_output_shapes
+: 
+€
+Cgradients/total_regularization_loss_grad/tuple/control_dependency_1Identity/gradients/add_3_grad/tuple/control_dependency_1:^gradients/total_regularization_loss_grad/tuple/group_deps*
+T0*!
+_class
+loc:@gradients/Fill*
+_output_shapes
+: 
+€
+Cgradients/total_regularization_loss_grad/tuple/control_dependency_2Identity/gradients/add_3_grad/tuple/control_dependency_1:^gradients/total_regularization_loss_grad/tuple/group_deps*
+T0*!
+_class
+loc:@gradients/Fill*
+_output_shapes
+: 
+€
+Cgradients/total_regularization_loss_grad/tuple/control_dependency_3Identity/gradients/add_3_grad/tuple/control_dependency_1:^gradients/total_regularization_loss_grad/tuple/group_deps*
+T0*!
+_class
+loc:@gradients/Fill*
+_output_shapes
+: 
+_
+gradients/add_2_grad/ShapeShapeadd_1*
+_output_shapes
+:*
+T0*
+out_type0
+a
+gradients/add_2_grad/Shape_1Shapemul_2*
+T0*
+out_type0*
+_output_shapes
+:
+º
+*gradients/add_2_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/add_2_grad/Shapegradients/add_2_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+¨
+gradients/add_2_grad/SumSumgradients/Mean_grad/truediv*gradients/add_2_grad/BroadcastGradientArgs*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+™
+gradients/add_2_grad/ReshapeReshapegradients/add_2_grad/Sumgradients/add_2_grad/Shape*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+¬
+gradients/add_2_grad/Sum_1Sumgradients/Mean_grad/truediv,gradients/add_2_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+Ÿ
+gradients/add_2_grad/Reshape_1Reshapegradients/add_2_grad/Sum_1gradients/add_2_grad/Shape_1*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+m
+%gradients/add_2_grad/tuple/group_depsNoOp^gradients/add_2_grad/Reshape^gradients/add_2_grad/Reshape_1
+Ş
+-gradients/add_2_grad/tuple/control_dependencyIdentitygradients/add_2_grad/Reshape&^gradients/add_2_grad/tuple/group_deps*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*/
+_class%
+#!loc:@gradients/add_2_grad/Reshape
+ä
+/gradients/add_2_grad/tuple/control_dependency_1Identitygradients/add_2_grad/Reshape_1&^gradients/add_2_grad/tuple/group_deps*
+T0*1
+_class'
+%#loc:@gradients/add_2_grad/Reshape_1*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+ë
+Egradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/MulMulAgradients/total_regularization_loss_grad/tuple/control_dependency9hidden_layer_a_0/kernel/Regularizer/l2_regularizer/L2Loss*
+T0*
+_output_shapes
+: 
+ì
+Ggradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/Mul_1MulAgradients/total_regularization_loss_grad/tuple/control_dependency8hidden_layer_a_0/kernel/Regularizer/l2_regularizer/scale*
+T0*
+_output_shapes
+: 
+ì
+Rgradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/tuple/group_depsNoOpF^gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/MulH^gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/Mul_1
+ı
+Zgradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependencyIdentityEgradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/MulS^gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+T0*X
+_classN
+LJloc:@gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/Mul*
+_output_shapes
+: 
+ƒ
+\gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1IdentityGgradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/Mul_1S^gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+T0*Z
+_classP
+NLloc:@gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/Mul_1*
+_output_shapes
+: 
+í
+Egradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/MulMulCgradients/total_regularization_loss_grad/tuple/control_dependency_19hidden_layer_a_1/kernel/Regularizer/l2_regularizer/L2Loss*
+_output_shapes
+: *
+T0
+î
+Ggradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/Mul_1MulCgradients/total_regularization_loss_grad/tuple/control_dependency_18hidden_layer_a_1/kernel/Regularizer/l2_regularizer/scale*
+T0*
+_output_shapes
+: 
+ì
+Rgradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/tuple/group_depsNoOpF^gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/MulH^gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/Mul_1
+ı
+Zgradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependencyIdentityEgradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/MulS^gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+_output_shapes
+: *
+T0*X
+_classN
+LJloc:@gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/Mul
+ƒ
+\gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1IdentityGgradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/Mul_1S^gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+T0*Z
+_classP
+NLloc:@gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/Mul_1*
+_output_shapes
+: 
+ç
+Bgradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/MulMulCgradients/total_regularization_loss_grad/tuple/control_dependency_26embed_layer_a/kernel/Regularizer/l2_regularizer/L2Loss*
+T0*
+_output_shapes
+: 
+è
+Dgradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/Mul_1MulCgradients/total_regularization_loss_grad/tuple/control_dependency_25embed_layer_a/kernel/Regularizer/l2_regularizer/scale*
+_output_shapes
+: *
+T0
+ã
+Ogradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/tuple/group_depsNoOpC^gradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/MulE^gradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/Mul_1
+ñ
+Wgradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependencyIdentityBgradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/MulP^gradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+_output_shapes
+: *
+T0*U
+_classK
+IGloc:@gradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/Mul
+÷
+Ygradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1IdentityDgradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/Mul_1P^gradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+T0*W
+_classM
+KIloc:@gradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/Mul_1*
+_output_shapes
+: 
+ç
+Bgradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/MulMulCgradients/total_regularization_loss_grad/tuple/control_dependency_36embed_layer_b/kernel/Regularizer/l2_regularizer/L2Loss*
+T0*
+_output_shapes
+: 
+è
+Dgradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/Mul_1MulCgradients/total_regularization_loss_grad/tuple/control_dependency_35embed_layer_b/kernel/Regularizer/l2_regularizer/scale*
+T0*
+_output_shapes
+: 
+ã
+Ogradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/tuple/group_depsNoOpC^gradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/MulE^gradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/Mul_1
+ñ
+Wgradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependencyIdentityBgradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/MulP^gradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+T0*U
+_classK
+IGloc:@gradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/Mul*
+_output_shapes
+: 
+÷
+Ygradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1IdentityDgradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/Mul_1P^gradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/tuple/group_deps*
+_output_shapes
+: *
+T0*W
+_classM
+KIloc:@gradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/Mul_1
+a
+gradients/add_1_grad/ShapeShapeMaximum*
+T0*
+out_type0*
+_output_shapes
+:
+e
+gradients/add_1_grad/Shape_1Shape	Maximum_1*
+_output_shapes
+:*
+T0*
+out_type0
+º
+*gradients/add_1_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/add_1_grad/Shapegradients/add_1_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+º
+gradients/add_1_grad/SumSum-gradients/add_2_grad/tuple/control_dependency*gradients/add_1_grad/BroadcastGradientArgs*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+™
+gradients/add_1_grad/ReshapeReshapegradients/add_1_grad/Sumgradients/add_1_grad/Shape*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+¾
+gradients/add_1_grad/Sum_1Sum-gradients/add_2_grad/tuple/control_dependency,gradients/add_1_grad/BroadcastGradientArgs:1*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+Ÿ
+gradients/add_1_grad/Reshape_1Reshapegradients/add_1_grad/Sum_1gradients/add_1_grad/Shape_1*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+m
+%gradients/add_1_grad/tuple/group_depsNoOp^gradients/add_1_grad/Reshape^gradients/add_1_grad/Reshape_1
+Ş
+-gradients/add_1_grad/tuple/control_dependencyIdentitygradients/add_1_grad/Reshape&^gradients/add_1_grad/tuple/group_deps*
+T0*/
+_class%
+#!loc:@gradients/add_1_grad/Reshape*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+ä
+/gradients/add_1_grad/tuple/control_dependency_1Identitygradients/add_1_grad/Reshape_1&^gradients/add_1_grad/tuple/group_deps*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*1
+_class'
+%#loc:@gradients/add_1_grad/Reshape_1
+c
+gradients/mul_2_grad/ShapeShape	Maximum_2*
+T0*
+out_type0*
+_output_shapes
+:
+_
+gradients/mul_2_grad/Shape_1Const*
+dtype0*
+_output_shapes
+: *
+valueB 
+º
+*gradients/mul_2_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/mul_2_grad/Shapegradients/mul_2_grad/Shape_1*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ*
+T0
+‡
+gradients/mul_2_grad/MulMul/gradients/add_2_grad/tuple/control_dependency_1mul_2/y*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+¥
+gradients/mul_2_grad/SumSumgradients/mul_2_grad/Mul*gradients/mul_2_grad/BroadcastGradientArgs*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+™
+gradients/mul_2_grad/ReshapeReshapegradients/mul_2_grad/Sumgradients/mul_2_grad/Shape*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+‹
+gradients/mul_2_grad/Mul_1Mul	Maximum_2/gradients/add_2_grad/tuple/control_dependency_1*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+«
+gradients/mul_2_grad/Sum_1Sumgradients/mul_2_grad/Mul_1,gradients/mul_2_grad/BroadcastGradientArgs:1*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+’
+gradients/mul_2_grad/Reshape_1Reshapegradients/mul_2_grad/Sum_1gradients/mul_2_grad/Shape_1*
+_output_shapes
+: *
+T0*
+Tshape0
+m
+%gradients/mul_2_grad/tuple/group_depsNoOp^gradients/mul_2_grad/Reshape^gradients/mul_2_grad/Reshape_1
+Ş
+-gradients/mul_2_grad/tuple/control_dependencyIdentitygradients/mul_2_grad/Reshape&^gradients/mul_2_grad/tuple/group_deps*
+T0*/
+_class%
+#!loc:@gradients/mul_2_grad/Reshape*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+×
+/gradients/mul_2_grad/tuple/control_dependency_1Identitygradients/mul_2_grad/Reshape_1&^gradients/mul_2_grad/tuple/group_deps*
+T0*1
+_class'
+%#loc:@gradients/mul_2_grad/Reshape_1*
+_output_shapes
+: 
+ù
+Lgradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer/L2Loss_grad/mulMulhidden_layer_a_0/kernel/read\gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1*
+T0*
+_output_shapes
+:	*€
+ú
+Lgradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer/L2Loss_grad/mulMulhidden_layer_a_1/kernel/read\gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1* 
+_output_shapes
+:
+€€*
+T0
+ğ
+Igradients/embed_layer_a/kernel/Regularizer/l2_regularizer/L2Loss_grad/mulMulembed_layer_a/kernel/readYgradients/embed_layer_a/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1*
+T0*
+_output_shapes
+:	€
+ï
+Igradients/embed_layer_b/kernel/Regularizer/l2_regularizer/L2Loss_grad/mulMulembed_layer_b/kernel/readYgradients/embed_layer_b/kernel/Regularizer/l2_regularizer_grad/tuple/control_dependency_1*
+T0*
+_output_shapes
+
+:
+_
+gradients/Maximum_grad/ShapeConst*
+dtype0*
+_output_shapes
+: *
+valueB 
+a
+gradients/Maximum_grad/Shape_1Shapesub*
+T0*
+out_type0*
+_output_shapes
+:
+‹
+gradients/Maximum_grad/Shape_2Shape-gradients/add_1_grad/tuple/control_dependency*
+_output_shapes
+:*
+T0*
+out_type0
+g
+"gradients/Maximum_grad/zeros/ConstConst*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+¨
+gradients/Maximum_grad/zerosFillgradients/Maximum_grad/Shape_2"gradients/Maximum_grad/zeros/Const*
+T0*
+
+index_type0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+q
+#gradients/Maximum_grad/GreaterEqualGreaterEqual	Maximum/xsub*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+À
+,gradients/Maximum_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/Maximum_grad/Shapegradients/Maximum_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+Ç
+gradients/Maximum_grad/SelectSelect#gradients/Maximum_grad/GreaterEqual-gradients/add_1_grad/tuple/control_dependencygradients/Maximum_grad/zeros*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+É
+gradients/Maximum_grad/Select_1Select#gradients/Maximum_grad/GreaterEqualgradients/Maximum_grad/zeros-gradients/add_1_grad/tuple/control_dependency*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+®
+gradients/Maximum_grad/SumSumgradients/Maximum_grad/Select,gradients/Maximum_grad/BroadcastGradientArgs*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+’
+gradients/Maximum_grad/ReshapeReshapegradients/Maximum_grad/Sumgradients/Maximum_grad/Shape*
+T0*
+Tshape0*
+_output_shapes
+: 
+´
+gradients/Maximum_grad/Sum_1Sumgradients/Maximum_grad/Select_1.gradients/Maximum_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+¥
+ gradients/Maximum_grad/Reshape_1Reshapegradients/Maximum_grad/Sum_1gradients/Maximum_grad/Shape_1*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+s
+'gradients/Maximum_grad/tuple/group_depsNoOp^gradients/Maximum_grad/Reshape!^gradients/Maximum_grad/Reshape_1
+Ù
+/gradients/Maximum_grad/tuple/control_dependencyIdentitygradients/Maximum_grad/Reshape(^gradients/Maximum_grad/tuple/group_deps*
+T0*1
+_class'
+%#loc:@gradients/Maximum_grad/Reshape*
+_output_shapes
+: 
+ì
+1gradients/Maximum_grad/tuple/control_dependency_1Identity gradients/Maximum_grad/Reshape_1(^gradients/Maximum_grad/tuple/group_deps*
+T0*3
+_class)
+'%loc:@gradients/Maximum_grad/Reshape_1*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+a
+gradients/Maximum_1_grad/ShapeConst*
+valueB *
+dtype0*
+_output_shapes
+: 
+c
+ gradients/Maximum_1_grad/Shape_1Shapeadd*
+T0*
+out_type0*
+_output_shapes
+:
+
+ gradients/Maximum_1_grad/Shape_2Shape/gradients/add_1_grad/tuple/control_dependency_1*
+T0*
+out_type0*
+_output_shapes
+:
+i
+$gradients/Maximum_1_grad/zeros/ConstConst*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+®
+gradients/Maximum_1_grad/zerosFill gradients/Maximum_1_grad/Shape_2$gradients/Maximum_1_grad/zeros/Const*
+T0*
+
+index_type0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+u
+%gradients/Maximum_1_grad/GreaterEqualGreaterEqualMaximum_1/xadd*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+Æ
+.gradients/Maximum_1_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/Maximum_1_grad/Shape gradients/Maximum_1_grad/Shape_1*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ*
+T0
+Ï
+gradients/Maximum_1_grad/SelectSelect%gradients/Maximum_1_grad/GreaterEqual/gradients/add_1_grad/tuple/control_dependency_1gradients/Maximum_1_grad/zeros*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+Ñ
+!gradients/Maximum_1_grad/Select_1Select%gradients/Maximum_1_grad/GreaterEqualgradients/Maximum_1_grad/zeros/gradients/add_1_grad/tuple/control_dependency_1*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+´
+gradients/Maximum_1_grad/SumSumgradients/Maximum_1_grad/Select.gradients/Maximum_1_grad/BroadcastGradientArgs*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+˜
+ gradients/Maximum_1_grad/ReshapeReshapegradients/Maximum_1_grad/Sumgradients/Maximum_1_grad/Shape*
+T0*
+Tshape0*
+_output_shapes
+: 
+º
+gradients/Maximum_1_grad/Sum_1Sum!gradients/Maximum_1_grad/Select_10gradients/Maximum_1_grad/BroadcastGradientArgs:1*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+«
+"gradients/Maximum_1_grad/Reshape_1Reshapegradients/Maximum_1_grad/Sum_1 gradients/Maximum_1_grad/Shape_1*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*
+Tshape0
+y
+)gradients/Maximum_1_grad/tuple/group_depsNoOp!^gradients/Maximum_1_grad/Reshape#^gradients/Maximum_1_grad/Reshape_1
+á
+1gradients/Maximum_1_grad/tuple/control_dependencyIdentity gradients/Maximum_1_grad/Reshape*^gradients/Maximum_1_grad/tuple/group_deps*
+_output_shapes
+: *
+T0*3
+_class)
+'%loc:@gradients/Maximum_1_grad/Reshape
+ô
+3gradients/Maximum_1_grad/tuple/control_dependency_1Identity"gradients/Maximum_1_grad/Reshape_1*^gradients/Maximum_1_grad/tuple/group_deps*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*5
+_class+
+)'loc:@gradients/Maximum_1_grad/Reshape_1
+a
+gradients/Maximum_2_grad/ShapeConst*
+dtype0*
+_output_shapes
+: *
+valueB 
+e
+ gradients/Maximum_2_grad/Shape_1ShapeMax_1*
+T0*
+out_type0*
+_output_shapes
+:
+
+ gradients/Maximum_2_grad/Shape_2Shape-gradients/mul_2_grad/tuple/control_dependency*
+T0*
+out_type0*
+_output_shapes
+:
+i
+$gradients/Maximum_2_grad/zeros/ConstConst*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+®
+gradients/Maximum_2_grad/zerosFill gradients/Maximum_2_grad/Shape_2$gradients/Maximum_2_grad/zeros/Const*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*
+
+index_type0
+w
+%gradients/Maximum_2_grad/GreaterEqualGreaterEqualMaximum_2/xMax_1*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+Æ
+.gradients/Maximum_2_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/Maximum_2_grad/Shape gradients/Maximum_2_grad/Shape_1*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ*
+T0
+Í
+gradients/Maximum_2_grad/SelectSelect%gradients/Maximum_2_grad/GreaterEqual-gradients/mul_2_grad/tuple/control_dependencygradients/Maximum_2_grad/zeros*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+Ï
+!gradients/Maximum_2_grad/Select_1Select%gradients/Maximum_2_grad/GreaterEqualgradients/Maximum_2_grad/zeros-gradients/mul_2_grad/tuple/control_dependency*
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+´
+gradients/Maximum_2_grad/SumSumgradients/Maximum_2_grad/Select.gradients/Maximum_2_grad/BroadcastGradientArgs*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+˜
+ gradients/Maximum_2_grad/ReshapeReshapegradients/Maximum_2_grad/Sumgradients/Maximum_2_grad/Shape*
+_output_shapes
+: *
+T0*
+Tshape0
+º
+gradients/Maximum_2_grad/Sum_1Sum!gradients/Maximum_2_grad/Select_10gradients/Maximum_2_grad/BroadcastGradientArgs:1*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+«
+"gradients/Maximum_2_grad/Reshape_1Reshapegradients/Maximum_2_grad/Sum_1 gradients/Maximum_2_grad/Shape_1*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+y
+)gradients/Maximum_2_grad/tuple/group_depsNoOp!^gradients/Maximum_2_grad/Reshape#^gradients/Maximum_2_grad/Reshape_1
+á
+1gradients/Maximum_2_grad/tuple/control_dependencyIdentity gradients/Maximum_2_grad/Reshape*^gradients/Maximum_2_grad/tuple/group_deps*
+T0*3
+_class)
+'%loc:@gradients/Maximum_2_grad/Reshape*
+_output_shapes
+: 
+ô
+3gradients/Maximum_2_grad/tuple/control_dependency_1Identity"gradients/Maximum_2_grad/Reshape_1*^gradients/Maximum_2_grad/tuple/group_deps*
+T0*5
+_class+
+)'loc:@gradients/Maximum_2_grad/Reshape_1*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+[
+gradients/sub_grad/ShapeConst*
+valueB *
+dtype0*
+_output_shapes
+: 
+i
+gradients/sub_grad/Shape_1Shapestrided_slice_2*
+T0*
+out_type0*
+_output_shapes
+:
+´
+(gradients/sub_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/sub_grad/Shapegradients/sub_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+º
+gradients/sub_grad/SumSum1gradients/Maximum_grad/tuple/control_dependency_1(gradients/sub_grad/BroadcastGradientArgs*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+†
+gradients/sub_grad/ReshapeReshapegradients/sub_grad/Sumgradients/sub_grad/Shape*
+T0*
+Tshape0*
+_output_shapes
+: 
+¾
+gradients/sub_grad/Sum_1Sum1gradients/Maximum_grad/tuple/control_dependency_1*gradients/sub_grad/BroadcastGradientArgs:1*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+Z
+gradients/sub_grad/NegNeggradients/sub_grad/Sum_1*
+_output_shapes
+:*
+T0
+—
+gradients/sub_grad/Reshape_1Reshapegradients/sub_grad/Neggradients/sub_grad/Shape_1*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+g
+#gradients/sub_grad/tuple/group_depsNoOp^gradients/sub_grad/Reshape^gradients/sub_grad/Reshape_1
+É
++gradients/sub_grad/tuple/control_dependencyIdentitygradients/sub_grad/Reshape$^gradients/sub_grad/tuple/group_deps*
+T0*-
+_class#
+!loc:@gradients/sub_grad/Reshape*
+_output_shapes
+: 
+Ü
+-gradients/sub_grad/tuple/control_dependency_1Identitygradients/sub_grad/Reshape_1$^gradients/sub_grad/tuple/group_deps*
+T0*/
+_class%
+#!loc:@gradients/sub_grad/Reshape_1*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+[
+gradients/add_grad/ShapeConst*
+valueB *
+dtype0*
+_output_shapes
+: 
+]
+gradients/add_grad/Shape_1ShapeMax*
+T0*
+out_type0*
+_output_shapes
+:
+´
+(gradients/add_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/add_grad/Shapegradients/add_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+¼
+gradients/add_grad/SumSum3gradients/Maximum_1_grad/tuple/control_dependency_1(gradients/add_grad/BroadcastGradientArgs*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+†
+gradients/add_grad/ReshapeReshapegradients/add_grad/Sumgradients/add_grad/Shape*
+T0*
+Tshape0*
+_output_shapes
+: 
+À
+gradients/add_grad/Sum_1Sum3gradients/Maximum_1_grad/tuple/control_dependency_1*gradients/add_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+™
+gradients/add_grad/Reshape_1Reshapegradients/add_grad/Sum_1gradients/add_grad/Shape_1*
+T0*
+Tshape0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+g
+#gradients/add_grad/tuple/group_depsNoOp^gradients/add_grad/Reshape^gradients/add_grad/Reshape_1
+É
++gradients/add_grad/tuple/control_dependencyIdentitygradients/add_grad/Reshape$^gradients/add_grad/tuple/group_deps*
+T0*-
+_class#
+!loc:@gradients/add_grad/Reshape*
+_output_shapes
+: 
+Ü
+-gradients/add_grad/tuple/control_dependency_1Identitygradients/add_grad/Reshape_1$^gradients/add_grad/tuple/group_deps*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*/
+_class%
+#!loc:@gradients/add_grad/Reshape_1
+_
+gradients/Max_1_grad/ShapeShapeSum_1*
+T0*
+out_type0*
+_output_shapes
+:
+[
+gradients/Max_1_grad/SizeConst*
+value	B :*
+dtype0*
+_output_shapes
+: 
+t
+gradients/Max_1_grad/addAddMax_1/reduction_indicesgradients/Max_1_grad/Size*
+T0*
+_output_shapes
+: 
+z
+gradients/Max_1_grad/modFloorModgradients/Max_1_grad/addgradients/Max_1_grad/Size*
+_output_shapes
+: *
+T0
+_
+gradients/Max_1_grad/Shape_1Const*
+valueB *
+dtype0*
+_output_shapes
+: 
+b
+ gradients/Max_1_grad/range/startConst*
+value	B : *
+dtype0*
+_output_shapes
+: 
+b
+ gradients/Max_1_grad/range/deltaConst*
+dtype0*
+_output_shapes
+: *
+value	B :
+ª
+gradients/Max_1_grad/rangeRange gradients/Max_1_grad/range/startgradients/Max_1_grad/Size gradients/Max_1_grad/range/delta*
+
+Tidx0*
+_output_shapes
+:
+a
+gradients/Max_1_grad/Fill/valueConst*
+dtype0*
+_output_shapes
+: *
+value	B :
+“
+gradients/Max_1_grad/FillFillgradients/Max_1_grad/Shape_1gradients/Max_1_grad/Fill/value*
+T0*
+
+index_type0*
+_output_shapes
+: 
+Î
+"gradients/Max_1_grad/DynamicStitchDynamicStitchgradients/Max_1_grad/rangegradients/Max_1_grad/modgradients/Max_1_grad/Shapegradients/Max_1_grad/Fill*
+T0*
+N*
+_output_shapes
+:
+›
+gradients/Max_1_grad/ReshapeReshapeMax_1"gradients/Max_1_grad/DynamicStitch*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Ë
+gradients/Max_1_grad/Reshape_1Reshape3gradients/Maximum_2_grad/tuple/control_dependency_1"gradients/Max_1_grad/DynamicStitch*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+ƒ
+gradients/Max_1_grad/EqualEqualgradients/Max_1_grad/ReshapeSum_1*
+T0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+—
+gradients/Max_1_grad/CastCastgradients/Max_1_grad/Equal*
+
+SrcT0
+*
+Truncate( *
+
+DstT0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+
+gradients/Max_1_grad/SumSumgradients/Max_1_grad/CastMax_1/reduction_indices*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+
+Tidx0*
+	keep_dims( *
+T0
+°
+gradients/Max_1_grad/Reshape_2Reshapegradients/Max_1_grad/Sum"gradients/Max_1_grad/DynamicStitch*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+™
+gradients/Max_1_grad/divRealDivgradients/Max_1_grad/Castgradients/Max_1_grad/Reshape_2*
+T0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+”
+gradients/Max_1_grad/mulMulgradients/Max_1_grad/divgradients/Max_1_grad/Reshape_1*
+T0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+g
+$gradients/strided_slice_2_grad/ShapeShapeSum*
+T0*
+out_type0*
+_output_shapes
+:
+
+/gradients/strided_slice_2_grad/StridedSliceGradStridedSliceGrad$gradients/strided_slice_2_grad/Shapestrided_slice_2/stackstrided_slice_2/stack_1strided_slice_2/stack_2-gradients/sub_grad/tuple/control_dependency_1*
+
+begin_mask*
+ellipsis_mask *
+new_axis_mask *
+end_mask*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+Index0*
+T0*
+shrink_axis_mask
+g
+gradients/Max_grad/ShapeShapestrided_slice_3*
+T0*
+out_type0*
+_output_shapes
+:
+Y
+gradients/Max_grad/SizeConst*
+value	B :*
+dtype0*
+_output_shapes
+: 
+n
+gradients/Max_grad/addAddMax/reduction_indicesgradients/Max_grad/Size*
+T0*
+_output_shapes
+: 
+t
+gradients/Max_grad/modFloorModgradients/Max_grad/addgradients/Max_grad/Size*
+T0*
+_output_shapes
+: 
+]
+gradients/Max_grad/Shape_1Const*
+dtype0*
+_output_shapes
+: *
+valueB 
+`
+gradients/Max_grad/range/startConst*
+dtype0*
+_output_shapes
+: *
+value	B : 
+`
+gradients/Max_grad/range/deltaConst*
+value	B :*
+dtype0*
+_output_shapes
+: 
+¢
+gradients/Max_grad/rangeRangegradients/Max_grad/range/startgradients/Max_grad/Sizegradients/Max_grad/range/delta*
+_output_shapes
+:*
+
+Tidx0
+_
+gradients/Max_grad/Fill/valueConst*
+dtype0*
+_output_shapes
+: *
+value	B :
+
+gradients/Max_grad/FillFillgradients/Max_grad/Shape_1gradients/Max_grad/Fill/value*
+T0*
+
+index_type0*
+_output_shapes
+: 
+Ä
+ gradients/Max_grad/DynamicStitchDynamicStitchgradients/Max_grad/rangegradients/Max_grad/modgradients/Max_grad/Shapegradients/Max_grad/Fill*
+T0*
+N*
+_output_shapes
+:
+•
+gradients/Max_grad/ReshapeReshapeMax gradients/Max_grad/DynamicStitch*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Á
+gradients/Max_grad/Reshape_1Reshape-gradients/add_grad/tuple/control_dependency_1 gradients/Max_grad/DynamicStitch*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+‰
+gradients/Max_grad/EqualEqualgradients/Max_grad/Reshapestrided_slice_3*
+T0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+“
+gradients/Max_grad/CastCastgradients/Max_grad/Equal*
+Truncate( *
+
+DstT0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+
+SrcT0
+
+˜
+gradients/Max_grad/SumSumgradients/Max_grad/CastMax/reduction_indices*
+
+Tidx0*
+	keep_dims( *
+T0*#
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+ª
+gradients/Max_grad/Reshape_2Reshapegradients/Max_grad/Sum gradients/Max_grad/DynamicStitch*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+“
+gradients/Max_grad/divRealDivgradients/Max_grad/Castgradients/Max_grad/Reshape_2*
+T0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+
+gradients/Max_grad/mulMulgradients/Max_grad/divgradients/Max_grad/Reshape_1*
+T0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+_
+gradients/Sum_1_grad/ShapeShapemul_1*
+T0*
+out_type0*
+_output_shapes
+:
+Š
+gradients/Sum_1_grad/SizeConst*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+£
+gradients/Sum_1_grad/addAddSum_1/reduction_indicesgradients/Sum_1_grad/Size*
+T0*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+_output_shapes
+: 
+©
+gradients/Sum_1_grad/modFloorModgradients/Sum_1_grad/addgradients/Sum_1_grad/Size*
+T0*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+_output_shapes
+: 
+
+gradients/Sum_1_grad/Shape_1Const*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+valueB *
+dtype0*
+_output_shapes
+: 
+‘
+ gradients/Sum_1_grad/range/startConst*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+value	B : *
+dtype0*
+_output_shapes
+: 
+‘
+ gradients/Sum_1_grad/range/deltaConst*
+dtype0*
+_output_shapes
+: *-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+value	B :
+Ù
+gradients/Sum_1_grad/rangeRange gradients/Sum_1_grad/range/startgradients/Sum_1_grad/Size gradients/Sum_1_grad/range/delta*
+
+Tidx0*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+_output_shapes
+:
+
+gradients/Sum_1_grad/Fill/valueConst*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+Â
+gradients/Sum_1_grad/FillFillgradients/Sum_1_grad/Shape_1gradients/Sum_1_grad/Fill/value*
+T0*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+
+index_type0*
+_output_shapes
+: 
+ı
+"gradients/Sum_1_grad/DynamicStitchDynamicStitchgradients/Sum_1_grad/rangegradients/Sum_1_grad/modgradients/Sum_1_grad/Shapegradients/Sum_1_grad/Fill*
+N*
+_output_shapes
+:*
+T0*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape
+
+gradients/Sum_1_grad/Maximum/yConst*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+¿
+gradients/Sum_1_grad/MaximumMaximum"gradients/Sum_1_grad/DynamicStitchgradients/Sum_1_grad/Maximum/y*
+T0*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+_output_shapes
+:
+·
+gradients/Sum_1_grad/floordivFloorDivgradients/Sum_1_grad/Shapegradients/Sum_1_grad/Maximum*
+T0*-
+_class#
+!loc:@gradients/Sum_1_grad/Shape*
+_output_shapes
+:
+»
+gradients/Sum_1_grad/ReshapeReshapegradients/Max_1_grad/mul"gradients/Sum_1_grad/DynamicStitch*
+T0*
+Tshape0*=
+_output_shapes+
+):'ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+¯
+gradients/Sum_1_grad/TileTilegradients/Sum_1_grad/Reshapegradients/Sum_1_grad/floordiv*
+
+Tmultiples0*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+g
+$gradients/strided_slice_3_grad/ShapeShapeSum*
+T0*
+out_type0*
+_output_shapes
+:
+ö
+/gradients/strided_slice_3_grad/StridedSliceGradStridedSliceGrad$gradients/strided_slice_3_grad/Shapestrided_slice_3/stackstrided_slice_3/stack_1strided_slice_3/stack_2gradients/Max_grad/mul*
+
+begin_mask*
+ellipsis_mask *
+new_axis_mask *
+end_mask*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+Index0*
+T0*
+shrink_axis_mask 
+g
+gradients/mul_1_grad/ShapeShapestrided_slice*
+_output_shapes
+:*
+T0*
+out_type0
+k
+gradients/mul_1_grad/Shape_1Shapestrided_slice_1*
+T0*
+out_type0*
+_output_shapes
+:
+º
+*gradients/mul_1_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/mul_1_grad/Shapegradients/mul_1_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+Š
+gradients/mul_1_grad/MulMulgradients/Sum_1_grad/Tilestrided_slice_1*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+¥
+gradients/mul_1_grad/SumSumgradients/mul_1_grad/Mul*gradients/mul_1_grad/BroadcastGradientArgs*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+ª
+gradients/mul_1_grad/ReshapeReshapegradients/mul_1_grad/Sumgradients/mul_1_grad/Shape*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*
+Tshape0
+Š
+gradients/mul_1_grad/Mul_1Mulstrided_slicegradients/Sum_1_grad/Tile*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+«
+gradients/mul_1_grad/Sum_1Sumgradients/mul_1_grad/Mul_1,gradients/mul_1_grad/BroadcastGradientArgs:1*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+°
+gradients/mul_1_grad/Reshape_1Reshapegradients/mul_1_grad/Sum_1gradients/mul_1_grad/Shape_1*
+T0*
+Tshape0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+m
+%gradients/mul_1_grad/tuple/group_depsNoOp^gradients/mul_1_grad/Reshape^gradients/mul_1_grad/Reshape_1
+ï
+-gradients/mul_1_grad/tuple/control_dependencyIdentitygradients/mul_1_grad/Reshape&^gradients/mul_1_grad/tuple/group_deps*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*/
+_class%
+#!loc:@gradients/mul_1_grad/Reshape
+õ
+/gradients/mul_1_grad/tuple/control_dependency_1Identitygradients/mul_1_grad/Reshape_1&^gradients/mul_1_grad/tuple/group_deps*
+T0*1
+_class'
+%#loc:@gradients/mul_1_grad/Reshape_1*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+€
+gradients/AddNAddN/gradients/strided_slice_2_grad/StridedSliceGrad/gradients/strided_slice_3_grad/StridedSliceGrad*
+N*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*B
+_class8
+64loc:@gradients/strided_slice_2_grad/StridedSliceGrad
+[
+gradients/Sum_grad/ShapeShapemul*
+_output_shapes
+:*
+T0*
+out_type0
+†
+gradients/Sum_grad/SizeConst*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+›
+gradients/Sum_grad/addAddSum/reduction_indicesgradients/Sum_grad/Size*
+_output_shapes
+: *
+T0*+
+_class!
+loc:@gradients/Sum_grad/Shape
+¡
+gradients/Sum_grad/modFloorModgradients/Sum_grad/addgradients/Sum_grad/Size*
+T0*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+_output_shapes
+: 
+Š
+gradients/Sum_grad/Shape_1Const*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+valueB *
+dtype0*
+_output_shapes
+: 
+
+gradients/Sum_grad/range/startConst*
+dtype0*
+_output_shapes
+: *+
+_class!
+loc:@gradients/Sum_grad/Shape*
+value	B : 
+
+gradients/Sum_grad/range/deltaConst*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+Ï
+gradients/Sum_grad/rangeRangegradients/Sum_grad/range/startgradients/Sum_grad/Sizegradients/Sum_grad/range/delta*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+_output_shapes
+:*
+
+Tidx0
+Œ
+gradients/Sum_grad/Fill/valueConst*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+º
+gradients/Sum_grad/FillFillgradients/Sum_grad/Shape_1gradients/Sum_grad/Fill/value*
+_output_shapes
+: *
+T0*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+
+index_type0
+ñ
+ gradients/Sum_grad/DynamicStitchDynamicStitchgradients/Sum_grad/rangegradients/Sum_grad/modgradients/Sum_grad/Shapegradients/Sum_grad/Fill*
+T0*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+N*
+_output_shapes
+:
+‹
+gradients/Sum_grad/Maximum/yConst*+
+_class!
+loc:@gradients/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+·
+gradients/Sum_grad/MaximumMaximum gradients/Sum_grad/DynamicStitchgradients/Sum_grad/Maximum/y*
+_output_shapes
+:*
+T0*+
+_class!
+loc:@gradients/Sum_grad/Shape
+¯
+gradients/Sum_grad/floordivFloorDivgradients/Sum_grad/Shapegradients/Sum_grad/Maximum*
+_output_shapes
+:*
+T0*+
+_class!
+loc:@gradients/Sum_grad/Shape
+­
+gradients/Sum_grad/ReshapeReshapegradients/AddN gradients/Sum_grad/DynamicStitch*=
+_output_shapes+
+):'ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*
+Tshape0
+©
+gradients/Sum_grad/TileTilegradients/Sum_grad/Reshapegradients/Sum_grad/floordiv*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+
+Tmultiples0
+p
+"gradients/strided_slice_grad/ShapeShapel2_normalize_1*
+T0*
+out_type0*
+_output_shapes
+:
+‡
+-gradients/strided_slice_grad/StridedSliceGradStridedSliceGrad"gradients/strided_slice_grad/Shapestrided_slice/stackstrided_slice/stack_1strided_slice/stack_2-gradients/mul_1_grad/tuple/control_dependency*
+Index0*
+T0*
+shrink_axis_mask *
+
+begin_mask*
+ellipsis_mask *
+new_axis_mask *
+end_mask*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+r
+$gradients/strided_slice_1_grad/ShapeShapel2_normalize_1*
+T0*
+out_type0*
+_output_shapes
+:
+“
+/gradients/strided_slice_1_grad/StridedSliceGradStridedSliceGrad$gradients/strided_slice_1_grad/Shapestrided_slice_1/stackstrided_slice_1/stack_1strided_slice_1/stack_2/gradients/mul_1_grad/tuple/control_dependency_1*
+shrink_axis_mask *
+
+begin_mask*
+ellipsis_mask *
+new_axis_mask *
+end_mask*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*
+Index0
+b
+gradients/mul_grad/ShapeShape
+ExpandDims*
+T0*
+out_type0*
+_output_shapes
+:
+h
+gradients/mul_grad/Shape_1Shapel2_normalize_1*
+_output_shapes
+:*
+T0*
+out_type0
+´
+(gradients/mul_grad/BroadcastGradientArgsBroadcastGradientArgsgradients/mul_grad/Shapegradients/mul_grad/Shape_1*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ*
+T0
+…
+gradients/mul_grad/MulMulgradients/Sum_grad/Tilel2_normalize_1*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Ÿ
+gradients/mul_grad/SumSumgradients/mul_grad/Mul(gradients/mul_grad/BroadcastGradientArgs*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+›
+gradients/mul_grad/ReshapeReshapegradients/mul_grad/Sumgradients/mul_grad/Shape*
+T0*
+Tshape0*+
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+ƒ
+gradients/mul_grad/Mul_1Mul
+ExpandDimsgradients/Sum_grad/Tile*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+¥
+gradients/mul_grad/Sum_1Sumgradients/mul_grad/Mul_1*gradients/mul_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+ª
+gradients/mul_grad/Reshape_1Reshapegradients/mul_grad/Sum_1gradients/mul_grad/Shape_1*
+T0*
+Tshape0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+g
+#gradients/mul_grad/tuple/group_depsNoOp^gradients/mul_grad/Reshape^gradients/mul_grad/Reshape_1
+Ş
++gradients/mul_grad/tuple/control_dependencyIdentitygradients/mul_grad/Reshape$^gradients/mul_grad/tuple/group_deps*
+T0*-
+_class#
+!loc:@gradients/mul_grad/Reshape*+
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+í
+-gradients/mul_grad/tuple/control_dependency_1Identitygradients/mul_grad/Reshape_1$^gradients/mul_grad/tuple/group_deps*
+T0*/
+_class%
+#!loc:@gradients/mul_grad/Reshape_1*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+k
+gradients/ExpandDims_grad/ShapeShapel2_normalize*
+T0*
+out_type0*
+_output_shapes
+:
+º
+!gradients/ExpandDims_grad/ReshapeReshape+gradients/mul_grad/tuple/control_dependencygradients/ExpandDims_grad/Shape*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*
+Tshape0
+±
+gradients/AddN_1AddN-gradients/strided_slice_grad/StridedSliceGrad/gradients/strided_slice_1_grad/StridedSliceGrad-gradients/mul_grad/tuple/control_dependency_1*
+N*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*@
+_class6
+42loc:@gradients/strided_slice_grad/StridedSliceGrad
+x
+#gradients/l2_normalize_1_grad/ShapeShapeembed_layer_b/BiasAdd*
+T0*
+out_type0*
+_output_shapes
+:
+y
+%gradients/l2_normalize_1_grad/Shape_1Shapel2_normalize_1/Rsqrt*
+T0*
+out_type0*
+_output_shapes
+:
+Õ
+3gradients/l2_normalize_1_grad/BroadcastGradientArgsBroadcastGradientArgs#gradients/l2_normalize_1_grad/Shape%gradients/l2_normalize_1_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+
+!gradients/l2_normalize_1_grad/MulMulgradients/AddN_1l2_normalize_1/Rsqrt*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0
+À
+!gradients/l2_normalize_1_grad/SumSum!gradients/l2_normalize_1_grad/Mul3gradients/l2_normalize_1_grad/BroadcastGradientArgs*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+Å
+%gradients/l2_normalize_1_grad/ReshapeReshape!gradients/l2_normalize_1_grad/Sum#gradients/l2_normalize_1_grad/Shape*
+T0*
+Tshape0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+’
+#gradients/l2_normalize_1_grad/Mul_1Mulembed_layer_b/BiasAddgradients/AddN_1*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Æ
+#gradients/l2_normalize_1_grad/Sum_1Sum#gradients/l2_normalize_1_grad/Mul_15gradients/l2_normalize_1_grad/BroadcastGradientArgs:1*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+Ë
+'gradients/l2_normalize_1_grad/Reshape_1Reshape#gradients/l2_normalize_1_grad/Sum_1%gradients/l2_normalize_1_grad/Shape_1*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*
+Tshape0
+ˆ
+.gradients/l2_normalize_1_grad/tuple/group_depsNoOp&^gradients/l2_normalize_1_grad/Reshape(^gradients/l2_normalize_1_grad/Reshape_1
+“
+6gradients/l2_normalize_1_grad/tuple/control_dependencyIdentity%gradients/l2_normalize_1_grad/Reshape/^gradients/l2_normalize_1_grad/tuple/group_deps*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize_1_grad/Reshape
+™
+8gradients/l2_normalize_1_grad/tuple/control_dependency_1Identity'gradients/l2_normalize_1_grad/Reshape_1/^gradients/l2_normalize_1_grad/tuple/group_deps*
+T0*:
+_class0
+.,loc:@gradients/l2_normalize_1_grad/Reshape_1*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+v
+!gradients/l2_normalize_grad/ShapeShapeembed_layer_a/BiasAdd*
+T0*
+out_type0*
+_output_shapes
+:
+u
+#gradients/l2_normalize_grad/Shape_1Shapel2_normalize/Rsqrt*
+T0*
+out_type0*
+_output_shapes
+:
+Ï
+1gradients/l2_normalize_grad/BroadcastGradientArgsBroadcastGradientArgs!gradients/l2_normalize_grad/Shape#gradients/l2_normalize_grad/Shape_1*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ*
+T0
+
+gradients/l2_normalize_grad/MulMul!gradients/ExpandDims_grad/Reshapel2_normalize/Rsqrt*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+º
+gradients/l2_normalize_grad/SumSumgradients/l2_normalize_grad/Mul1gradients/l2_normalize_grad/BroadcastGradientArgs*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+²
+#gradients/l2_normalize_grad/ReshapeReshapegradients/l2_normalize_grad/Sum!gradients/l2_normalize_grad/Shape*
+T0*
+Tshape0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+”
+!gradients/l2_normalize_grad/Mul_1Mulembed_layer_a/BiasAdd!gradients/ExpandDims_grad/Reshape*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+À
+!gradients/l2_normalize_grad/Sum_1Sum!gradients/l2_normalize_grad/Mul_13gradients/l2_normalize_grad/BroadcastGradientArgs:1*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+¸
+%gradients/l2_normalize_grad/Reshape_1Reshape!gradients/l2_normalize_grad/Sum_1#gradients/l2_normalize_grad/Shape_1*
+T0*
+Tshape0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+‚
+,gradients/l2_normalize_grad/tuple/group_depsNoOp$^gradients/l2_normalize_grad/Reshape&^gradients/l2_normalize_grad/Reshape_1
+ş
+4gradients/l2_normalize_grad/tuple/control_dependencyIdentity#gradients/l2_normalize_grad/Reshape-^gradients/l2_normalize_grad/tuple/group_deps*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*6
+_class,
+*(loc:@gradients/l2_normalize_grad/Reshape
+„
+6gradients/l2_normalize_grad/tuple/control_dependency_1Identity%gradients/l2_normalize_grad/Reshape_1-^gradients/l2_normalize_grad/tuple/group_deps*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize_grad/Reshape_1*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+É
+-gradients/l2_normalize_1/Rsqrt_grad/RsqrtGrad	RsqrtGradl2_normalize_1/Rsqrt8gradients/l2_normalize_1_grad/tuple/control_dependency_1*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+¶
++gradients/l2_normalize/Rsqrt_grad/RsqrtGrad	RsqrtGradl2_normalize/Rsqrt6gradients/l2_normalize_grad/tuple/control_dependency_1*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+}
++gradients/l2_normalize_1/Maximum_grad/ShapeShapel2_normalize_1/Sum*
+T0*
+out_type0*
+_output_shapes
+:
+p
+-gradients/l2_normalize_1/Maximum_grad/Shape_1Const*
+valueB *
+dtype0*
+_output_shapes
+: 
+š
+-gradients/l2_normalize_1/Maximum_grad/Shape_2Shape-gradients/l2_normalize_1/Rsqrt_grad/RsqrtGrad*
+T0*
+out_type0*
+_output_shapes
+:
+v
+1gradients/l2_normalize_1/Maximum_grad/zeros/ConstConst*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+æ
++gradients/l2_normalize_1/Maximum_grad/zerosFill-gradients/l2_normalize_1/Maximum_grad/Shape_21gradients/l2_normalize_1/Maximum_grad/zeros/Const*
+T0*
+
+index_type0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+¯
+2gradients/l2_normalize_1/Maximum_grad/GreaterEqualGreaterEquall2_normalize_1/Suml2_normalize_1/Maximum/y*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+í
+;gradients/l2_normalize_1/Maximum_grad/BroadcastGradientArgsBroadcastGradientArgs+gradients/l2_normalize_1/Maximum_grad/Shape-gradients/l2_normalize_1/Maximum_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+…
+,gradients/l2_normalize_1/Maximum_grad/SelectSelect2gradients/l2_normalize_1/Maximum_grad/GreaterEqual-gradients/l2_normalize_1/Rsqrt_grad/RsqrtGrad+gradients/l2_normalize_1/Maximum_grad/zeros*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0
+‡
+.gradients/l2_normalize_1/Maximum_grad/Select_1Select2gradients/l2_normalize_1/Maximum_grad/GreaterEqual+gradients/l2_normalize_1/Maximum_grad/zeros-gradients/l2_normalize_1/Rsqrt_grad/RsqrtGrad*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Û
+)gradients/l2_normalize_1/Maximum_grad/SumSum,gradients/l2_normalize_1/Maximum_grad/Select;gradients/l2_normalize_1/Maximum_grad/BroadcastGradientArgs*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+İ
+-gradients/l2_normalize_1/Maximum_grad/ReshapeReshape)gradients/l2_normalize_1/Maximum_grad/Sum+gradients/l2_normalize_1/Maximum_grad/Shape*
+T0*
+Tshape0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+á
++gradients/l2_normalize_1/Maximum_grad/Sum_1Sum.gradients/l2_normalize_1/Maximum_grad/Select_1=gradients/l2_normalize_1/Maximum_grad/BroadcastGradientArgs:1*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+Å
+/gradients/l2_normalize_1/Maximum_grad/Reshape_1Reshape+gradients/l2_normalize_1/Maximum_grad/Sum_1-gradients/l2_normalize_1/Maximum_grad/Shape_1*
+_output_shapes
+: *
+T0*
+Tshape0
+ 
+6gradients/l2_normalize_1/Maximum_grad/tuple/group_depsNoOp.^gradients/l2_normalize_1/Maximum_grad/Reshape0^gradients/l2_normalize_1/Maximum_grad/Reshape_1
+³
+>gradients/l2_normalize_1/Maximum_grad/tuple/control_dependencyIdentity-gradients/l2_normalize_1/Maximum_grad/Reshape7^gradients/l2_normalize_1/Maximum_grad/tuple/group_deps*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*
+T0*@
+_class6
+42loc:@gradients/l2_normalize_1/Maximum_grad/Reshape
+›
+@gradients/l2_normalize_1/Maximum_grad/tuple/control_dependency_1Identity/gradients/l2_normalize_1/Maximum_grad/Reshape_17^gradients/l2_normalize_1/Maximum_grad/tuple/group_deps*
+T0*B
+_class8
+64loc:@gradients/l2_normalize_1/Maximum_grad/Reshape_1*
+_output_shapes
+: 
+y
+)gradients/l2_normalize/Maximum_grad/ShapeShapel2_normalize/Sum*
+T0*
+out_type0*
+_output_shapes
+:
+n
++gradients/l2_normalize/Maximum_grad/Shape_1Const*
+valueB *
+dtype0*
+_output_shapes
+: 
+–
++gradients/l2_normalize/Maximum_grad/Shape_2Shape+gradients/l2_normalize/Rsqrt_grad/RsqrtGrad*
+T0*
+out_type0*
+_output_shapes
+:
+t
+/gradients/l2_normalize/Maximum_grad/zeros/ConstConst*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+Ó
+)gradients/l2_normalize/Maximum_grad/zerosFill+gradients/l2_normalize/Maximum_grad/Shape_2/gradients/l2_normalize/Maximum_grad/zeros/Const*
+T0*
+
+index_type0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+œ
+0gradients/l2_normalize/Maximum_grad/GreaterEqualGreaterEquall2_normalize/Suml2_normalize/Maximum/y*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+ç
+9gradients/l2_normalize/Maximum_grad/BroadcastGradientArgsBroadcastGradientArgs)gradients/l2_normalize/Maximum_grad/Shape+gradients/l2_normalize/Maximum_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+ğ
+*gradients/l2_normalize/Maximum_grad/SelectSelect0gradients/l2_normalize/Maximum_grad/GreaterEqual+gradients/l2_normalize/Rsqrt_grad/RsqrtGrad)gradients/l2_normalize/Maximum_grad/zeros*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+ò
+,gradients/l2_normalize/Maximum_grad/Select_1Select0gradients/l2_normalize/Maximum_grad/GreaterEqual)gradients/l2_normalize/Maximum_grad/zeros+gradients/l2_normalize/Rsqrt_grad/RsqrtGrad*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+Õ
+'gradients/l2_normalize/Maximum_grad/SumSum*gradients/l2_normalize/Maximum_grad/Select9gradients/l2_normalize/Maximum_grad/BroadcastGradientArgs*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+Ê
++gradients/l2_normalize/Maximum_grad/ReshapeReshape'gradients/l2_normalize/Maximum_grad/Sum)gradients/l2_normalize/Maximum_grad/Shape*
+T0*
+Tshape0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+Û
+)gradients/l2_normalize/Maximum_grad/Sum_1Sum,gradients/l2_normalize/Maximum_grad/Select_1;gradients/l2_normalize/Maximum_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+¿
+-gradients/l2_normalize/Maximum_grad/Reshape_1Reshape)gradients/l2_normalize/Maximum_grad/Sum_1+gradients/l2_normalize/Maximum_grad/Shape_1*
+T0*
+Tshape0*
+_output_shapes
+: 
+š
+4gradients/l2_normalize/Maximum_grad/tuple/group_depsNoOp,^gradients/l2_normalize/Maximum_grad/Reshape.^gradients/l2_normalize/Maximum_grad/Reshape_1
+
+<gradients/l2_normalize/Maximum_grad/tuple/control_dependencyIdentity+gradients/l2_normalize/Maximum_grad/Reshape5^gradients/l2_normalize/Maximum_grad/tuple/group_deps*
+T0*>
+_class4
+20loc:@gradients/l2_normalize/Maximum_grad/Reshape*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+“
+>gradients/l2_normalize/Maximum_grad/tuple/control_dependency_1Identity-gradients/l2_normalize/Maximum_grad/Reshape_15^gradients/l2_normalize/Maximum_grad/tuple/group_deps*
+_output_shapes
+: *
+T0*@
+_class6
+42loc:@gradients/l2_normalize/Maximum_grad/Reshape_1
+|
+'gradients/l2_normalize_1/Sum_grad/ShapeShapel2_normalize_1/Square*
+T0*
+out_type0*
+_output_shapes
+:
+¤
+&gradients/l2_normalize_1/Sum_grad/SizeConst*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+×
+%gradients/l2_normalize_1/Sum_grad/addAdd$l2_normalize_1/Sum/reduction_indices&gradients/l2_normalize_1/Sum_grad/Size*
+T0*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+_output_shapes
+: 
+İ
+%gradients/l2_normalize_1/Sum_grad/modFloorMod%gradients/l2_normalize_1/Sum_grad/add&gradients/l2_normalize_1/Sum_grad/Size*
+T0*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+_output_shapes
+: 
+¨
+)gradients/l2_normalize_1/Sum_grad/Shape_1Const*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+valueB *
+dtype0*
+_output_shapes
+: 
+«
+-gradients/l2_normalize_1/Sum_grad/range/startConst*
+dtype0*
+_output_shapes
+: *:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+value	B : 
+«
+-gradients/l2_normalize_1/Sum_grad/range/deltaConst*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+š
+'gradients/l2_normalize_1/Sum_grad/rangeRange-gradients/l2_normalize_1/Sum_grad/range/start&gradients/l2_normalize_1/Sum_grad/Size-gradients/l2_normalize_1/Sum_grad/range/delta*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+_output_shapes
+:*
+
+Tidx0
+ª
+,gradients/l2_normalize_1/Sum_grad/Fill/valueConst*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+ö
+&gradients/l2_normalize_1/Sum_grad/FillFill)gradients/l2_normalize_1/Sum_grad/Shape_1,gradients/l2_normalize_1/Sum_grad/Fill/value*
+T0*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+
+index_type0*
+_output_shapes
+: 
+Ë
+/gradients/l2_normalize_1/Sum_grad/DynamicStitchDynamicStitch'gradients/l2_normalize_1/Sum_grad/range%gradients/l2_normalize_1/Sum_grad/mod'gradients/l2_normalize_1/Sum_grad/Shape&gradients/l2_normalize_1/Sum_grad/Fill*
+T0*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+N*
+_output_shapes
+:
+©
++gradients/l2_normalize_1/Sum_grad/Maximum/yConst*
+dtype0*
+_output_shapes
+: *:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+value	B :
+ó
+)gradients/l2_normalize_1/Sum_grad/MaximumMaximum/gradients/l2_normalize_1/Sum_grad/DynamicStitch+gradients/l2_normalize_1/Sum_grad/Maximum/y*
+T0*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+_output_shapes
+:
+ë
+*gradients/l2_normalize_1/Sum_grad/floordivFloorDiv'gradients/l2_normalize_1/Sum_grad/Shape)gradients/l2_normalize_1/Sum_grad/Maximum*
+T0*:
+_class0
+.,loc:@gradients/l2_normalize_1/Sum_grad/Shape*
+_output_shapes
+:
+û
+)gradients/l2_normalize_1/Sum_grad/ReshapeReshape>gradients/l2_normalize_1/Maximum_grad/tuple/control_dependency/gradients/l2_normalize_1/Sum_grad/DynamicStitch*
+T0*
+Tshape0*=
+_output_shapes+
+):'ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Ö
+&gradients/l2_normalize_1/Sum_grad/TileTile)gradients/l2_normalize_1/Sum_grad/Reshape*gradients/l2_normalize_1/Sum_grad/floordiv*
+
+Tmultiples0*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+x
+%gradients/l2_normalize/Sum_grad/ShapeShapel2_normalize/Square*
+T0*
+out_type0*
+_output_shapes
+:
+ 
+$gradients/l2_normalize/Sum_grad/SizeConst*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+Ï
+#gradients/l2_normalize/Sum_grad/addAdd"l2_normalize/Sum/reduction_indices$gradients/l2_normalize/Sum_grad/Size*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+_output_shapes
+: 
+Õ
+#gradients/l2_normalize/Sum_grad/modFloorMod#gradients/l2_normalize/Sum_grad/add$gradients/l2_normalize/Sum_grad/Size*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+_output_shapes
+: 
+¤
+'gradients/l2_normalize/Sum_grad/Shape_1Const*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+valueB *
+dtype0*
+_output_shapes
+: 
+§
++gradients/l2_normalize/Sum_grad/range/startConst*
+dtype0*
+_output_shapes
+: *8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+value	B : 
+§
++gradients/l2_normalize/Sum_grad/range/deltaConst*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+
+%gradients/l2_normalize/Sum_grad/rangeRange+gradients/l2_normalize/Sum_grad/range/start$gradients/l2_normalize/Sum_grad/Size+gradients/l2_normalize/Sum_grad/range/delta*
+_output_shapes
+:*
+
+Tidx0*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape
+¦
+*gradients/l2_normalize/Sum_grad/Fill/valueConst*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+î
+$gradients/l2_normalize/Sum_grad/FillFill'gradients/l2_normalize/Sum_grad/Shape_1*gradients/l2_normalize/Sum_grad/Fill/value*
+_output_shapes
+: *
+T0*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+
+index_type0
+¿
+-gradients/l2_normalize/Sum_grad/DynamicStitchDynamicStitch%gradients/l2_normalize/Sum_grad/range#gradients/l2_normalize/Sum_grad/mod%gradients/l2_normalize/Sum_grad/Shape$gradients/l2_normalize/Sum_grad/Fill*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+N*
+_output_shapes
+:
+¥
+)gradients/l2_normalize/Sum_grad/Maximum/yConst*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape*
+value	B :*
+dtype0*
+_output_shapes
+: 
+ë
+'gradients/l2_normalize/Sum_grad/MaximumMaximum-gradients/l2_normalize/Sum_grad/DynamicStitch)gradients/l2_normalize/Sum_grad/Maximum/y*
+_output_shapes
+:*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape
+ã
+(gradients/l2_normalize/Sum_grad/floordivFloorDiv%gradients/l2_normalize/Sum_grad/Shape'gradients/l2_normalize/Sum_grad/Maximum*
+_output_shapes
+:*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize/Sum_grad/Shape
+è
+'gradients/l2_normalize/Sum_grad/ReshapeReshape<gradients/l2_normalize/Maximum_grad/tuple/control_dependency-gradients/l2_normalize/Sum_grad/DynamicStitch*
+T0*
+Tshape0*0
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Ã
+$gradients/l2_normalize/Sum_grad/TileTile'gradients/l2_normalize/Sum_grad/Reshape(gradients/l2_normalize/Sum_grad/floordiv*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+
+Tmultiples0*
+T0
+˜
+*gradients/l2_normalize_1/Square_grad/ConstConst'^gradients/l2_normalize_1/Sum_grad/Tile*
+valueB
+ *   @*
+dtype0*
+_output_shapes
+: 
+±
+(gradients/l2_normalize_1/Square_grad/MulMulembed_layer_b/BiasAdd*gradients/l2_normalize_1/Square_grad/Const*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Â
+*gradients/l2_normalize_1/Square_grad/Mul_1Mul&gradients/l2_normalize_1/Sum_grad/Tile(gradients/l2_normalize_1/Square_grad/Mul*
+T0*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+”
+(gradients/l2_normalize/Square_grad/ConstConst%^gradients/l2_normalize/Sum_grad/Tile*
+dtype0*
+_output_shapes
+: *
+valueB
+ *   @
+ 
+&gradients/l2_normalize/Square_grad/MulMulembed_layer_a/BiasAdd(gradients/l2_normalize/Square_grad/Const*
+T0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+¯
+(gradients/l2_normalize/Square_grad/Mul_1Mul$gradients/l2_normalize/Sum_grad/Tile&gradients/l2_normalize/Square_grad/Mul*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0
+ş
+gradients/AddN_2AddN6gradients/l2_normalize_1_grad/tuple/control_dependency*gradients/l2_normalize_1/Square_grad/Mul_1*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize_1_grad/Reshape*
+N*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+
+0gradients/embed_layer_b/BiasAdd_grad/BiasAddGradBiasAddGradgradients/AddN_2*
+T0*
+data_formatNHWC*
+_output_shapes
+:
+ƒ
+5gradients/embed_layer_b/BiasAdd_grad/tuple/group_depsNoOp^gradients/AddN_21^gradients/embed_layer_b/BiasAdd_grad/BiasAddGrad
+Œ
+=gradients/embed_layer_b/BiasAdd_grad/tuple/control_dependencyIdentitygradients/AddN_26^gradients/embed_layer_b/BiasAdd_grad/tuple/group_deps*
+T0*8
+_class.
+,*loc:@gradients/l2_normalize_1_grad/Reshape*4
+_output_shapes"
+ :ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Ÿ
+?gradients/embed_layer_b/BiasAdd_grad/tuple/control_dependency_1Identity0gradients/embed_layer_b/BiasAdd_grad/BiasAddGrad6^gradients/embed_layer_b/BiasAdd_grad/tuple/group_deps*
+T0*C
+_class9
+75loc:@gradients/embed_layer_b/BiasAdd_grad/BiasAddGrad*
+_output_shapes
+:
+ë
+gradients/AddN_3AddN4gradients/l2_normalize_grad/tuple/control_dependency(gradients/l2_normalize/Square_grad/Mul_1*
+T0*6
+_class,
+*(loc:@gradients/l2_normalize_grad/Reshape*
+N*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+
+0gradients/embed_layer_a/BiasAdd_grad/BiasAddGradBiasAddGradgradients/AddN_3*
+T0*
+data_formatNHWC*
+_output_shapes
+:
+ƒ
+5gradients/embed_layer_a/BiasAdd_grad/tuple/group_depsNoOp^gradients/AddN_31^gradients/embed_layer_a/BiasAdd_grad/BiasAddGrad
+ı
+=gradients/embed_layer_a/BiasAdd_grad/tuple/control_dependencyIdentitygradients/AddN_36^gradients/embed_layer_a/BiasAdd_grad/tuple/group_deps*
+T0*6
+_class,
+*(loc:@gradients/l2_normalize_grad/Reshape*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+Ÿ
+?gradients/embed_layer_a/BiasAdd_grad/tuple/control_dependency_1Identity0gradients/embed_layer_a/BiasAdd_grad/BiasAddGrad6^gradients/embed_layer_a/BiasAdd_grad/tuple/group_deps*
+T0*C
+_class9
+75loc:@gradients/embed_layer_a/BiasAdd_grad/BiasAddGrad*
+_output_shapes
+:
+Š
+,gradients/embed_layer_b/Tensordot_grad/ShapeShapeembed_layer_b/Tensordot/MatMul*
+T0*
+out_type0*
+_output_shapes
+:
+æ
+.gradients/embed_layer_b/Tensordot_grad/ReshapeReshape=gradients/embed_layer_b/BiasAdd_grad/tuple/control_dependency,gradients/embed_layer_b/Tensordot_grad/Shape*
+T0*
+Tshape0*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ
+ç
+*gradients/embed_layer_a/MatMul_grad/MatMulMatMul=gradients/embed_layer_a/BiasAdd_grad/tuple/control_dependencyembed_layer_a/kernel/read*
+transpose_b(*
+T0*
+transpose_a( *(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Û
+,gradients/embed_layer_a/MatMul_grad/MatMul_1MatMuldropout_1/cond/Merge=gradients/embed_layer_a/BiasAdd_grad/tuple/control_dependency*
+T0*
+transpose_a(*
+_output_shapes
+:	€*
+transpose_b( 
+˜
+4gradients/embed_layer_a/MatMul_grad/tuple/group_depsNoOp+^gradients/embed_layer_a/MatMul_grad/MatMul-^gradients/embed_layer_a/MatMul_grad/MatMul_1
+
+<gradients/embed_layer_a/MatMul_grad/tuple/control_dependencyIdentity*gradients/embed_layer_a/MatMul_grad/MatMul5^gradients/embed_layer_a/MatMul_grad/tuple/group_deps*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0*=
+_class3
+1/loc:@gradients/embed_layer_a/MatMul_grad/MatMul
+š
+>gradients/embed_layer_a/MatMul_grad/tuple/control_dependency_1Identity,gradients/embed_layer_a/MatMul_grad/MatMul_15^gradients/embed_layer_a/MatMul_grad/tuple/group_deps*
+T0*?
+_class5
+31loc:@gradients/embed_layer_a/MatMul_grad/MatMul_1*
+_output_shapes
+:	€
+é
+4gradients/embed_layer_b/Tensordot/MatMul_grad/MatMulMatMul.gradients/embed_layer_b/Tensordot_grad/Reshape!embed_layer_b/Tensordot/Reshape_1*
+T0*
+transpose_a( *'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+transpose_b(
+é
+6gradients/embed_layer_b/Tensordot/MatMul_grad/MatMul_1MatMulembed_layer_b/Tensordot/Reshape.gradients/embed_layer_b/Tensordot_grad/Reshape*
+transpose_a(*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+transpose_b( *
+T0
+¶
+>gradients/embed_layer_b/Tensordot/MatMul_grad/tuple/group_depsNoOp5^gradients/embed_layer_b/Tensordot/MatMul_grad/MatMul7^gradients/embed_layer_b/Tensordot/MatMul_grad/MatMul_1
+Ä
+Fgradients/embed_layer_b/Tensordot/MatMul_grad/tuple/control_dependencyIdentity4gradients/embed_layer_b/Tensordot/MatMul_grad/MatMul?^gradients/embed_layer_b/Tensordot/MatMul_grad/tuple/group_deps*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+T0*G
+_class=
+;9loc:@gradients/embed_layer_b/Tensordot/MatMul_grad/MatMul
+Á
+Hgradients/embed_layer_b/Tensordot/MatMul_grad/tuple/control_dependency_1Identity6gradients/embed_layer_b/Tensordot/MatMul_grad/MatMul_1?^gradients/embed_layer_b/Tensordot/MatMul_grad/tuple/group_deps*
+_output_shapes
+
+:*
+T0*I
+_class?
+=;loc:@gradients/embed_layer_b/Tensordot/MatMul_grad/MatMul_1
+“
+-gradients/dropout_1/cond/Merge_grad/cond_gradSwitch<gradients/embed_layer_a/MatMul_grad/tuple/control_dependencydropout_1/cond/pred_id*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€*
+T0*=
+_class3
+1/loc:@gradients/embed_layer_a/MatMul_grad/MatMul
+l
+4gradients/dropout_1/cond/Merge_grad/tuple/group_depsNoOp.^gradients/dropout_1/cond/Merge_grad/cond_grad
+ 
+<gradients/dropout_1/cond/Merge_grad/tuple/control_dependencyIdentity-gradients/dropout_1/cond/Merge_grad/cond_grad5^gradients/dropout_1/cond/Merge_grad/tuple/group_deps*
+T0*=
+_class3
+1/loc:@gradients/embed_layer_a/MatMul_grad/MatMul*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¤
+>gradients/dropout_1/cond/Merge_grad/tuple/control_dependency_1Identity/gradients/dropout_1/cond/Merge_grad/cond_grad:15^gradients/dropout_1/cond/Merge_grad/tuple/group_deps*
+T0*=
+_class3
+1/loc:@gradients/embed_layer_a/MatMul_grad/MatMul*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+´
+gradients/AddN_4AddNIgradients/embed_layer_a/kernel/Regularizer/l2_regularizer/L2Loss_grad/mul>gradients/embed_layer_a/MatMul_grad/tuple/control_dependency_1*
+N*
+_output_shapes
+:	€*
+T0*\
+_classR
+PNloc:@gradients/embed_layer_a/kernel/Regularizer/l2_regularizer/L2Loss_grad/mul
+‡
+6gradients/embed_layer_b/Tensordot/Reshape_1_grad/ShapeConst*
+dtype0*
+_output_shapes
+:*
+valueB"      
+ü
+8gradients/embed_layer_b/Tensordot/Reshape_1_grad/ReshapeReshapeHgradients/embed_layer_b/Tensordot/MatMul_grad/tuple/control_dependency_16gradients/embed_layer_b/Tensordot/Reshape_1_grad/Shape*
+_output_shapes
+
+:*
+T0*
+Tshape0
+
+/gradients/dropout_1/cond/dropout/mul_grad/ShapeShapedropout_1/cond/dropout/truediv*
+T0*
+out_type0*
+_output_shapes
+:
+
+1gradients/dropout_1/cond/dropout/mul_grad/Shape_1Shapedropout_1/cond/dropout/Floor*
+T0*
+out_type0*
+_output_shapes
+:
+ù
+?gradients/dropout_1/cond/dropout/mul_grad/BroadcastGradientArgsBroadcastGradientArgs/gradients/dropout_1/cond/dropout/mul_grad/Shape1gradients/dropout_1/cond/dropout/mul_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+Å
+-gradients/dropout_1/cond/dropout/mul_grad/MulMul>gradients/dropout_1/cond/Merge_grad/tuple/control_dependency_1dropout_1/cond/dropout/Floor*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+ä
+-gradients/dropout_1/cond/dropout/mul_grad/SumSum-gradients/dropout_1/cond/dropout/mul_grad/Mul?gradients/dropout_1/cond/dropout/mul_grad/BroadcastGradientArgs*
+
+Tidx0*
+	keep_dims( *
+T0*
+_output_shapes
+:
+İ
+1gradients/dropout_1/cond/dropout/mul_grad/ReshapeReshape-gradients/dropout_1/cond/dropout/mul_grad/Sum/gradients/dropout_1/cond/dropout/mul_grad/Shape*
+T0*
+Tshape0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+É
+/gradients/dropout_1/cond/dropout/mul_grad/Mul_1Muldropout_1/cond/dropout/truediv>gradients/dropout_1/cond/Merge_grad/tuple/control_dependency_1*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+ê
+/gradients/dropout_1/cond/dropout/mul_grad/Sum_1Sum/gradients/dropout_1/cond/dropout/mul_grad/Mul_1Agradients/dropout_1/cond/dropout/mul_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+ã
+3gradients/dropout_1/cond/dropout/mul_grad/Reshape_1Reshape/gradients/dropout_1/cond/dropout/mul_grad/Sum_11gradients/dropout_1/cond/dropout/mul_grad/Shape_1*
+T0*
+Tshape0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¬
+:gradients/dropout_1/cond/dropout/mul_grad/tuple/group_depsNoOp2^gradients/dropout_1/cond/dropout/mul_grad/Reshape4^gradients/dropout_1/cond/dropout/mul_grad/Reshape_1
+·
+Bgradients/dropout_1/cond/dropout/mul_grad/tuple/control_dependencyIdentity1gradients/dropout_1/cond/dropout/mul_grad/Reshape;^gradients/dropout_1/cond/dropout/mul_grad/tuple/group_deps*
+T0*D
+_class:
+86loc:@gradients/dropout_1/cond/dropout/mul_grad/Reshape*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+½
+Dgradients/dropout_1/cond/dropout/mul_grad/tuple/control_dependency_1Identity3gradients/dropout_1/cond/dropout/mul_grad/Reshape_1;^gradients/dropout_1/cond/dropout/mul_grad/tuple/group_deps*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0*F
+_class<
+:8loc:@gradients/dropout_1/cond/dropout/mul_grad/Reshape_1
+¨
+Dgradients/embed_layer_b/Tensordot/transpose_1_grad/InvertPermutationInvertPermutation(embed_layer_b/Tensordot/transpose_1/perm*
+T0*
+_output_shapes
+:
+ÿ
+<gradients/embed_layer_b/Tensordot/transpose_1_grad/transpose	Transpose8gradients/embed_layer_b/Tensordot/Reshape_1_grad/ReshapeDgradients/embed_layer_b/Tensordot/transpose_1_grad/InvertPermutation*
+T0*
+_output_shapes
+
+:*
+Tperm0
+
+gradients/SwitchSwitchhidden_layer_a_1/Reludropout_1/cond/pred_id*
+T0*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€
+e
+gradients/IdentityIdentitygradients/Switch:1*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+c
+gradients/Shape_1Shapegradients/Switch:1*
+T0*
+out_type0*
+_output_shapes
+:
+o
+gradients/zeros/ConstConst^gradients/Identity*
+dtype0*
+_output_shapes
+: *
+valueB
+ *    
+†
+gradients/zerosFillgradients/Shape_1gradients/zeros/Const*
+T0*
+
+index_type0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Í
+7gradients/dropout_1/cond/Identity/Switch_grad/cond_gradMerge<gradients/dropout_1/cond/Merge_grad/tuple/control_dependencygradients/zeros*
+T0*
+N**
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€: 
+˜
+3gradients/dropout_1/cond/dropout/truediv_grad/ShapeShape%dropout_1/cond/dropout/Shape/Switch:1*
+T0*
+out_type0*
+_output_shapes
+:
+x
+5gradients/dropout_1/cond/dropout/truediv_grad/Shape_1Const*
+valueB *
+dtype0*
+_output_shapes
+: 
+…
+Cgradients/dropout_1/cond/dropout/truediv_grad/BroadcastGradientArgsBroadcastGradientArgs3gradients/dropout_1/cond/dropout/truediv_grad/Shape5gradients/dropout_1/cond/dropout/truediv_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+Ó
+5gradients/dropout_1/cond/dropout/truediv_grad/RealDivRealDivBgradients/dropout_1/cond/dropout/mul_grad/tuple/control_dependencydropout_1/cond/dropout/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+ô
+1gradients/dropout_1/cond/dropout/truediv_grad/SumSum5gradients/dropout_1/cond/dropout/truediv_grad/RealDivCgradients/dropout_1/cond/dropout/truediv_grad/BroadcastGradientArgs*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+é
+5gradients/dropout_1/cond/dropout/truediv_grad/ReshapeReshape1gradients/dropout_1/cond/dropout/truediv_grad/Sum3gradients/dropout_1/cond/dropout/truediv_grad/Shape*
+T0*
+Tshape0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+’
+1gradients/dropout_1/cond/dropout/truediv_grad/NegNeg%dropout_1/cond/dropout/Shape/Switch:1*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ä
+7gradients/dropout_1/cond/dropout/truediv_grad/RealDiv_1RealDiv1gradients/dropout_1/cond/dropout/truediv_grad/Negdropout_1/cond/dropout/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ê
+7gradients/dropout_1/cond/dropout/truediv_grad/RealDiv_2RealDiv7gradients/dropout_1/cond/dropout/truediv_grad/RealDiv_1dropout_1/cond/dropout/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+è
+1gradients/dropout_1/cond/dropout/truediv_grad/mulMulBgradients/dropout_1/cond/dropout/mul_grad/tuple/control_dependency7gradients/dropout_1/cond/dropout/truediv_grad/RealDiv_2*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+ô
+3gradients/dropout_1/cond/dropout/truediv_grad/Sum_1Sum1gradients/dropout_1/cond/dropout/truediv_grad/mulEgradients/dropout_1/cond/dropout/truediv_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+İ
+7gradients/dropout_1/cond/dropout/truediv_grad/Reshape_1Reshape3gradients/dropout_1/cond/dropout/truediv_grad/Sum_15gradients/dropout_1/cond/dropout/truediv_grad/Shape_1*
+T0*
+Tshape0*
+_output_shapes
+: 
+¸
+>gradients/dropout_1/cond/dropout/truediv_grad/tuple/group_depsNoOp6^gradients/dropout_1/cond/dropout/truediv_grad/Reshape8^gradients/dropout_1/cond/dropout/truediv_grad/Reshape_1
+Ç
+Fgradients/dropout_1/cond/dropout/truediv_grad/tuple/control_dependencyIdentity5gradients/dropout_1/cond/dropout/truediv_grad/Reshape?^gradients/dropout_1/cond/dropout/truediv_grad/tuple/group_deps*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0*H
+_class>
+<:loc:@gradients/dropout_1/cond/dropout/truediv_grad/Reshape
+»
+Hgradients/dropout_1/cond/dropout/truediv_grad/tuple/control_dependency_1Identity7gradients/dropout_1/cond/dropout/truediv_grad/Reshape_1?^gradients/dropout_1/cond/dropout/truediv_grad/tuple/group_deps*
+T0*J
+_class@
+><loc:@gradients/dropout_1/cond/dropout/truediv_grad/Reshape_1*
+_output_shapes
+: 
+±
+gradients/AddN_5AddNIgradients/embed_layer_b/kernel/Regularizer/l2_regularizer/L2Loss_grad/mul<gradients/embed_layer_b/Tensordot/transpose_1_grad/transpose*
+T0*\
+_classR
+PNloc:@gradients/embed_layer_b/kernel/Regularizer/l2_regularizer/L2Loss_grad/mul*
+N*
+_output_shapes
+
+:
+’
+gradients/Switch_1Switchhidden_layer_a_1/Reludropout_1/cond/pred_id*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€*
+T0
+g
+gradients/Identity_1Identitygradients/Switch_1*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+c
+gradients/Shape_2Shapegradients/Switch_1*
+T0*
+out_type0*
+_output_shapes
+:
+s
+gradients/zeros_1/ConstConst^gradients/Identity_1*
+dtype0*
+_output_shapes
+: *
+valueB
+ *    
+Š
+gradients/zeros_1Fillgradients/Shape_2gradients/zeros_1/Const*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0*
+
+index_type0
+Ş
+<gradients/dropout_1/cond/dropout/Shape/Switch_grad/cond_gradMergegradients/zeros_1Fgradients/dropout_1/cond/dropout/truediv_grad/tuple/control_dependency*
+T0*
+N**
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€: 
+—
+gradients/AddN_6AddN7gradients/dropout_1/cond/Identity/Switch_grad/cond_grad<gradients/dropout_1/cond/dropout/Shape/Switch_grad/cond_grad*
+T0*J
+_class@
+><loc:@gradients/dropout_1/cond/Identity/Switch_grad/cond_grad*
+N*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+•
+-gradients/hidden_layer_a_1/Relu_grad/ReluGradReluGradgradients/AddN_6hidden_layer_a_1/Relu*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+®
+3gradients/hidden_layer_a_1/BiasAdd_grad/BiasAddGradBiasAddGrad-gradients/hidden_layer_a_1/Relu_grad/ReluGrad*
+T0*
+data_formatNHWC*
+_output_shapes	
+:€
+¦
+8gradients/hidden_layer_a_1/BiasAdd_grad/tuple/group_depsNoOp4^gradients/hidden_layer_a_1/BiasAdd_grad/BiasAddGrad.^gradients/hidden_layer_a_1/Relu_grad/ReluGrad
+«
+@gradients/hidden_layer_a_1/BiasAdd_grad/tuple/control_dependencyIdentity-gradients/hidden_layer_a_1/Relu_grad/ReluGrad9^gradients/hidden_layer_a_1/BiasAdd_grad/tuple/group_deps*
+T0*@
+_class6
+42loc:@gradients/hidden_layer_a_1/Relu_grad/ReluGrad*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¬
+Bgradients/hidden_layer_a_1/BiasAdd_grad/tuple/control_dependency_1Identity3gradients/hidden_layer_a_1/BiasAdd_grad/BiasAddGrad9^gradients/hidden_layer_a_1/BiasAdd_grad/tuple/group_deps*
+T0*F
+_class<
+:8loc:@gradients/hidden_layer_a_1/BiasAdd_grad/BiasAddGrad*
+_output_shapes	
+:€
+ğ
+-gradients/hidden_layer_a_1/MatMul_grad/MatMulMatMul@gradients/hidden_layer_a_1/BiasAdd_grad/tuple/control_dependencyhidden_layer_a_1/kernel/read*
+T0*
+transpose_a( *(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+transpose_b(
+à
+/gradients/hidden_layer_a_1/MatMul_grad/MatMul_1MatMuldropout/cond/Merge@gradients/hidden_layer_a_1/BiasAdd_grad/tuple/control_dependency*
+T0*
+transpose_a(* 
+_output_shapes
+:
+€€*
+transpose_b( 
+¡
+7gradients/hidden_layer_a_1/MatMul_grad/tuple/group_depsNoOp.^gradients/hidden_layer_a_1/MatMul_grad/MatMul0^gradients/hidden_layer_a_1/MatMul_grad/MatMul_1
+©
+?gradients/hidden_layer_a_1/MatMul_grad/tuple/control_dependencyIdentity-gradients/hidden_layer_a_1/MatMul_grad/MatMul8^gradients/hidden_layer_a_1/MatMul_grad/tuple/group_deps*
+T0*@
+_class6
+42loc:@gradients/hidden_layer_a_1/MatMul_grad/MatMul*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+§
+Agradients/hidden_layer_a_1/MatMul_grad/tuple/control_dependency_1Identity/gradients/hidden_layer_a_1/MatMul_grad/MatMul_18^gradients/hidden_layer_a_1/MatMul_grad/tuple/group_deps*
+T0*B
+_class8
+64loc:@gradients/hidden_layer_a_1/MatMul_grad/MatMul_1* 
+_output_shapes
+:
+€€
+•
++gradients/dropout/cond/Merge_grad/cond_gradSwitch?gradients/hidden_layer_a_1/MatMul_grad/tuple/control_dependencydropout/cond/pred_id*
+T0*@
+_class6
+42loc:@gradients/hidden_layer_a_1/MatMul_grad/MatMul*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€
+h
+2gradients/dropout/cond/Merge_grad/tuple/group_depsNoOp,^gradients/dropout/cond/Merge_grad/cond_grad
+
+:gradients/dropout/cond/Merge_grad/tuple/control_dependencyIdentity+gradients/dropout/cond/Merge_grad/cond_grad3^gradients/dropout/cond/Merge_grad/tuple/group_deps*
+T0*@
+_class6
+42loc:@gradients/hidden_layer_a_1/MatMul_grad/MatMul*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¡
+<gradients/dropout/cond/Merge_grad/tuple/control_dependency_1Identity-gradients/dropout/cond/Merge_grad/cond_grad:13^gradients/dropout/cond/Merge_grad/tuple/group_deps*
+T0*@
+_class6
+42loc:@gradients/hidden_layer_a_1/MatMul_grad/MatMul*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¾
+gradients/AddN_7AddNLgradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer/L2Loss_grad/mulAgradients/hidden_layer_a_1/MatMul_grad/tuple/control_dependency_1*
+T0*_
+_classU
+SQloc:@gradients/hidden_layer_a_1/kernel/Regularizer/l2_regularizer/L2Loss_grad/mul*
+N* 
+_output_shapes
+:
+€€
+‰
+-gradients/dropout/cond/dropout/mul_grad/ShapeShapedropout/cond/dropout/truediv*
+T0*
+out_type0*
+_output_shapes
+:
+‰
+/gradients/dropout/cond/dropout/mul_grad/Shape_1Shapedropout/cond/dropout/Floor*
+T0*
+out_type0*
+_output_shapes
+:
+ó
+=gradients/dropout/cond/dropout/mul_grad/BroadcastGradientArgsBroadcastGradientArgs-gradients/dropout/cond/dropout/mul_grad/Shape/gradients/dropout/cond/dropout/mul_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+¿
++gradients/dropout/cond/dropout/mul_grad/MulMul<gradients/dropout/cond/Merge_grad/tuple/control_dependency_1dropout/cond/dropout/Floor*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+Ş
++gradients/dropout/cond/dropout/mul_grad/SumSum+gradients/dropout/cond/dropout/mul_grad/Mul=gradients/dropout/cond/dropout/mul_grad/BroadcastGradientArgs*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+×
+/gradients/dropout/cond/dropout/mul_grad/ReshapeReshape+gradients/dropout/cond/dropout/mul_grad/Sum-gradients/dropout/cond/dropout/mul_grad/Shape*
+T0*
+Tshape0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ã
+-gradients/dropout/cond/dropout/mul_grad/Mul_1Muldropout/cond/dropout/truediv<gradients/dropout/cond/Merge_grad/tuple/control_dependency_1*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+ä
+-gradients/dropout/cond/dropout/mul_grad/Sum_1Sum-gradients/dropout/cond/dropout/mul_grad/Mul_1?gradients/dropout/cond/dropout/mul_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+İ
+1gradients/dropout/cond/dropout/mul_grad/Reshape_1Reshape-gradients/dropout/cond/dropout/mul_grad/Sum_1/gradients/dropout/cond/dropout/mul_grad/Shape_1*
+T0*
+Tshape0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¦
+8gradients/dropout/cond/dropout/mul_grad/tuple/group_depsNoOp0^gradients/dropout/cond/dropout/mul_grad/Reshape2^gradients/dropout/cond/dropout/mul_grad/Reshape_1
+¯
+@gradients/dropout/cond/dropout/mul_grad/tuple/control_dependencyIdentity/gradients/dropout/cond/dropout/mul_grad/Reshape9^gradients/dropout/cond/dropout/mul_grad/tuple/group_deps*
+T0*B
+_class8
+64loc:@gradients/dropout/cond/dropout/mul_grad/Reshape*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+µ
+Bgradients/dropout/cond/dropout/mul_grad/tuple/control_dependency_1Identity1gradients/dropout/cond/dropout/mul_grad/Reshape_19^gradients/dropout/cond/dropout/mul_grad/tuple/group_deps*
+T0*D
+_class:
+86loc:@gradients/dropout/cond/dropout/mul_grad/Reshape_1*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+
+gradients/Switch_2Switchhidden_layer_a_0/Reludropout/cond/pred_id*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€*
+T0
+i
+gradients/Identity_2Identitygradients/Switch_2:1*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+e
+gradients/Shape_3Shapegradients/Switch_2:1*
+_output_shapes
+:*
+T0*
+out_type0
+s
+gradients/zeros_2/ConstConst^gradients/Identity_2*
+dtype0*
+_output_shapes
+: *
+valueB
+ *    
+Š
+gradients/zeros_2Fillgradients/Shape_3gradients/zeros_2/Const*
+T0*
+
+index_type0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ë
+5gradients/dropout/cond/Identity/Switch_grad/cond_gradMerge:gradients/dropout/cond/Merge_grad/tuple/control_dependencygradients/zeros_2*
+T0*
+N**
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€: 
+”
+1gradients/dropout/cond/dropout/truediv_grad/ShapeShape#dropout/cond/dropout/Shape/Switch:1*
+T0*
+out_type0*
+_output_shapes
+:
+v
+3gradients/dropout/cond/dropout/truediv_grad/Shape_1Const*
+dtype0*
+_output_shapes
+: *
+valueB 
+ÿ
+Agradients/dropout/cond/dropout/truediv_grad/BroadcastGradientArgsBroadcastGradientArgs1gradients/dropout/cond/dropout/truediv_grad/Shape3gradients/dropout/cond/dropout/truediv_grad/Shape_1*
+T0*2
+_output_shapes 
+:ÿÿÿÿÿÿÿÿÿ:ÿÿÿÿÿÿÿÿÿ
+Í
+3gradients/dropout/cond/dropout/truediv_grad/RealDivRealDiv@gradients/dropout/cond/dropout/mul_grad/tuple/control_dependencydropout/cond/dropout/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+î
+/gradients/dropout/cond/dropout/truediv_grad/SumSum3gradients/dropout/cond/dropout/truediv_grad/RealDivAgradients/dropout/cond/dropout/truediv_grad/BroadcastGradientArgs*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( *
+T0
+ã
+3gradients/dropout/cond/dropout/truediv_grad/ReshapeReshape/gradients/dropout/cond/dropout/truediv_grad/Sum1gradients/dropout/cond/dropout/truediv_grad/Shape*
+T0*
+Tshape0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+
+/gradients/dropout/cond/dropout/truediv_grad/NegNeg#dropout/cond/dropout/Shape/Switch:1*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¾
+5gradients/dropout/cond/dropout/truediv_grad/RealDiv_1RealDiv/gradients/dropout/cond/dropout/truediv_grad/Negdropout/cond/dropout/sub*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ä
+5gradients/dropout/cond/dropout/truediv_grad/RealDiv_2RealDiv5gradients/dropout/cond/dropout/truediv_grad/RealDiv_1dropout/cond/dropout/sub*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+â
+/gradients/dropout/cond/dropout/truediv_grad/mulMul@gradients/dropout/cond/dropout/mul_grad/tuple/control_dependency5gradients/dropout/cond/dropout/truediv_grad/RealDiv_2*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€*
+T0
+î
+1gradients/dropout/cond/dropout/truediv_grad/Sum_1Sum/gradients/dropout/cond/dropout/truediv_grad/mulCgradients/dropout/cond/dropout/truediv_grad/BroadcastGradientArgs:1*
+T0*
+_output_shapes
+:*
+
+Tidx0*
+	keep_dims( 
+×
+5gradients/dropout/cond/dropout/truediv_grad/Reshape_1Reshape1gradients/dropout/cond/dropout/truediv_grad/Sum_13gradients/dropout/cond/dropout/truediv_grad/Shape_1*
+T0*
+Tshape0*
+_output_shapes
+: 
+²
+<gradients/dropout/cond/dropout/truediv_grad/tuple/group_depsNoOp4^gradients/dropout/cond/dropout/truediv_grad/Reshape6^gradients/dropout/cond/dropout/truediv_grad/Reshape_1
+¿
+Dgradients/dropout/cond/dropout/truediv_grad/tuple/control_dependencyIdentity3gradients/dropout/cond/dropout/truediv_grad/Reshape=^gradients/dropout/cond/dropout/truediv_grad/tuple/group_deps*
+T0*F
+_class<
+:8loc:@gradients/dropout/cond/dropout/truediv_grad/Reshape*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+³
+Fgradients/dropout/cond/dropout/truediv_grad/tuple/control_dependency_1Identity5gradients/dropout/cond/dropout/truediv_grad/Reshape_1=^gradients/dropout/cond/dropout/truediv_grad/tuple/group_deps*
+T0*H
+_class>
+<:loc:@gradients/dropout/cond/dropout/truediv_grad/Reshape_1*
+_output_shapes
+: 
+
+gradients/Switch_3Switchhidden_layer_a_0/Reludropout/cond/pred_id*<
+_output_shapes*
+(:ÿÿÿÿÿÿÿÿÿ€:ÿÿÿÿÿÿÿÿÿ€*
+T0
+g
+gradients/Identity_3Identitygradients/Switch_3*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+c
+gradients/Shape_4Shapegradients/Switch_3*
+T0*
+out_type0*
+_output_shapes
+:
+s
+gradients/zeros_3/ConstConst^gradients/Identity_3*
+valueB
+ *    *
+dtype0*
+_output_shapes
+: 
+Š
+gradients/zeros_3Fillgradients/Shape_4gradients/zeros_3/Const*
+T0*
+
+index_type0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+Ú
+:gradients/dropout/cond/dropout/Shape/Switch_grad/cond_gradMergegradients/zeros_3Dgradients/dropout/cond/dropout/truediv_grad/tuple/control_dependency*
+T0*
+N**
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€: 
+‘
+gradients/AddN_8AddN5gradients/dropout/cond/Identity/Switch_grad/cond_grad:gradients/dropout/cond/dropout/Shape/Switch_grad/cond_grad*
+T0*H
+_class>
+<:loc:@gradients/dropout/cond/Identity/Switch_grad/cond_grad*
+N*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+•
+-gradients/hidden_layer_a_0/Relu_grad/ReluGradReluGradgradients/AddN_8hidden_layer_a_0/Relu*
+T0*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+®
+3gradients/hidden_layer_a_0/BiasAdd_grad/BiasAddGradBiasAddGrad-gradients/hidden_layer_a_0/Relu_grad/ReluGrad*
+data_formatNHWC*
+_output_shapes	
+:€*
+T0
+¦
+8gradients/hidden_layer_a_0/BiasAdd_grad/tuple/group_depsNoOp4^gradients/hidden_layer_a_0/BiasAdd_grad/BiasAddGrad.^gradients/hidden_layer_a_0/Relu_grad/ReluGrad
+«
+@gradients/hidden_layer_a_0/BiasAdd_grad/tuple/control_dependencyIdentity-gradients/hidden_layer_a_0/Relu_grad/ReluGrad9^gradients/hidden_layer_a_0/BiasAdd_grad/tuple/group_deps*
+T0*@
+_class6
+42loc:@gradients/hidden_layer_a_0/Relu_grad/ReluGrad*(
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ€
+¬
+Bgradients/hidden_layer_a_0/BiasAdd_grad/tuple/control_dependency_1Identity3gradients/hidden_layer_a_0/BiasAdd_grad/BiasAddGrad9^gradients/hidden_layer_a_0/BiasAdd_grad/tuple/group_deps*
+T0*F
+_class<
+:8loc:@gradients/hidden_layer_a_0/BiasAdd_grad/BiasAddGrad*
+_output_shapes	
+:€
+ï
+-gradients/hidden_layer_a_0/MatMul_grad/MatMulMatMul@gradients/hidden_layer_a_0/BiasAdd_grad/tuple/control_dependencyhidden_layer_a_0/kernel/read*
+transpose_a( *'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ**
+transpose_b(*
+T0
+Î
+/gradients/hidden_layer_a_0/MatMul_grad/MatMul_1MatMula@gradients/hidden_layer_a_0/BiasAdd_grad/tuple/control_dependency*
+T0*
+transpose_a(*
+_output_shapes
+:	*€*
+transpose_b( 
+¡
+7gradients/hidden_layer_a_0/MatMul_grad/tuple/group_depsNoOp.^gradients/hidden_layer_a_0/MatMul_grad/MatMul0^gradients/hidden_layer_a_0/MatMul_grad/MatMul_1
+¨
+?gradients/hidden_layer_a_0/MatMul_grad/tuple/control_dependencyIdentity-gradients/hidden_layer_a_0/MatMul_grad/MatMul8^gradients/hidden_layer_a_0/MatMul_grad/tuple/group_deps*
+T0*@
+_class6
+42loc:@gradients/hidden_layer_a_0/MatMul_grad/MatMul*'
+_output_shapes
+:ÿÿÿÿÿÿÿÿÿ*
+¦
+Agradients/hidden_layer_a_0/MatMul_grad/tuple/control_dependency_1Identity/gradients/hidden_layer_a_0/MatMul_grad/MatMul_18^gradients/hidden_layer_a_0/MatMul_grad/tuple/group_deps*
+_output_shapes
+:	*€*
+T0*B
+_class8
+64loc:@gradients/hidden_layer_a_0/MatMul_grad/MatMul_1
+½
+gradients/AddN_9AddNLgradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer/L2Loss_grad/mulAgradients/hidden_layer_a_0/MatMul_grad/tuple/control_dependency_1*
+T0*_
+_classU
+SQloc:@gradients/hidden_layer_a_0/kernel/Regularizer/l2_regularizer/L2Loss_grad/mul*
+N*
+_output_shapes
+:	*€
+…
+beta1_power/initial_valueConst*%
+_class
+loc:@embed_layer_a/bias*
+valueB
+ *fff?*
+dtype0*
+_output_shapes
+: 
+–
+beta1_power
+VariableV2*
+dtype0*
+_output_shapes
+: *
+shared_name *%
+_class
+loc:@embed_layer_a/bias*
+	container *
+shape: 
+µ
+beta1_power/AssignAssignbeta1_powerbeta1_power/initial_value*
+validate_shape(*
+_output_shapes
+: *
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_a/bias
+q
+beta1_power/readIdentitybeta1_power*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+_output_shapes
+: 
+…
+beta2_power/initial_valueConst*%
+_class
+loc:@embed_layer_a/bias*
+valueB
+ *w¾?*
+dtype0*
+_output_shapes
+: 
+–
+beta2_power
+VariableV2*
+shared_name *%
+_class
+loc:@embed_layer_a/bias*
+	container *
+shape: *
+dtype0*
+_output_shapes
+: 
+µ
+beta2_power/AssignAssignbeta2_powerbeta2_power/initial_value*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+: 
+q
+beta2_power/readIdentitybeta2_power*
+_output_shapes
+: *
+T0*%
+_class
+loc:@embed_layer_a/bias
+»
+>hidden_layer_a_0/kernel/Adam/Initializer/zeros/shape_as_tensorConst*
+dtype0*
+_output_shapes
+:*
+valueB"*      **
+_class 
+loc:@hidden_layer_a_0/kernel
+¥
+4hidden_layer_a_0/kernel/Adam/Initializer/zeros/ConstConst*
+valueB
+ *    **
+_class 
+loc:@hidden_layer_a_0/kernel*
+dtype0*
+_output_shapes
+: 
+”
+.hidden_layer_a_0/kernel/Adam/Initializer/zerosFill>hidden_layer_a_0/kernel/Adam/Initializer/zeros/shape_as_tensor4hidden_layer_a_0/kernel/Adam/Initializer/zeros/Const*
+_output_shapes
+:	*€*
+T0*
+
+index_type0**
+_class 
+loc:@hidden_layer_a_0/kernel
+¾
+hidden_layer_a_0/kernel/Adam
+VariableV2*
+dtype0*
+_output_shapes
+:	*€*
+shared_name **
+_class 
+loc:@hidden_layer_a_0/kernel*
+	container *
+shape:	*€
+ú
+#hidden_layer_a_0/kernel/Adam/AssignAssignhidden_layer_a_0/kernel/Adam.hidden_layer_a_0/kernel/Adam/Initializer/zeros*
+validate_shape(*
+_output_shapes
+:	*€*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel
+¡
+!hidden_layer_a_0/kernel/Adam/readIdentityhidden_layer_a_0/kernel/Adam*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+_output_shapes
+:	*€
+½
+@hidden_layer_a_0/kernel/Adam_1/Initializer/zeros/shape_as_tensorConst*
+dtype0*
+_output_shapes
+:*
+valueB"*      **
+_class 
+loc:@hidden_layer_a_0/kernel
+§
+6hidden_layer_a_0/kernel/Adam_1/Initializer/zeros/ConstConst*
+valueB
+ *    **
+_class 
+loc:@hidden_layer_a_0/kernel*
+dtype0*
+_output_shapes
+: 
+š
+0hidden_layer_a_0/kernel/Adam_1/Initializer/zerosFill@hidden_layer_a_0/kernel/Adam_1/Initializer/zeros/shape_as_tensor6hidden_layer_a_0/kernel/Adam_1/Initializer/zeros/Const*
+T0*
+
+index_type0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+_output_shapes
+:	*€
+À
+hidden_layer_a_0/kernel/Adam_1
+VariableV2*
+dtype0*
+_output_shapes
+:	*€*
+shared_name **
+_class 
+loc:@hidden_layer_a_0/kernel*
+	container *
+shape:	*€
+€
+%hidden_layer_a_0/kernel/Adam_1/AssignAssignhidden_layer_a_0/kernel/Adam_10hidden_layer_a_0/kernel/Adam_1/Initializer/zeros*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+validate_shape(*
+_output_shapes
+:	*€
+¥
+#hidden_layer_a_0/kernel/Adam_1/readIdentityhidden_layer_a_0/kernel/Adam_1*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+_output_shapes
+:	*€
+¥
+,hidden_layer_a_0/bias/Adam/Initializer/zerosConst*
+dtype0*
+_output_shapes	
+:€*
+valueB€*    *(
+_class
+loc:@hidden_layer_a_0/bias
+²
+hidden_layer_a_0/bias/Adam
+VariableV2*
+shape:€*
+dtype0*
+_output_shapes	
+:€*
+shared_name *(
+_class
+loc:@hidden_layer_a_0/bias*
+	container 
+î
+!hidden_layer_a_0/bias/Adam/AssignAssignhidden_layer_a_0/bias/Adam,hidden_layer_a_0/bias/Adam/Initializer/zeros*
+validate_shape(*
+_output_shapes	
+:€*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_0/bias
+—
+hidden_layer_a_0/bias/Adam/readIdentityhidden_layer_a_0/bias/Adam*
+T0*(
+_class
+loc:@hidden_layer_a_0/bias*
+_output_shapes	
+:€
+§
+.hidden_layer_a_0/bias/Adam_1/Initializer/zerosConst*
+dtype0*
+_output_shapes	
+:€*
+valueB€*    *(
+_class
+loc:@hidden_layer_a_0/bias
+´
+hidden_layer_a_0/bias/Adam_1
+VariableV2*
+shape:€*
+dtype0*
+_output_shapes	
+:€*
+shared_name *(
+_class
+loc:@hidden_layer_a_0/bias*
+	container 
+ô
+#hidden_layer_a_0/bias/Adam_1/AssignAssignhidden_layer_a_0/bias/Adam_1.hidden_layer_a_0/bias/Adam_1/Initializer/zeros*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_0/bias*
+validate_shape(*
+_output_shapes	
+:€
+›
+!hidden_layer_a_0/bias/Adam_1/readIdentityhidden_layer_a_0/bias/Adam_1*
+_output_shapes	
+:€*
+T0*(
+_class
+loc:@hidden_layer_a_0/bias
+»
+>hidden_layer_a_1/kernel/Adam/Initializer/zeros/shape_as_tensorConst*
+valueB"   €   **
+_class 
+loc:@hidden_layer_a_1/kernel*
+dtype0*
+_output_shapes
+:
+¥
+4hidden_layer_a_1/kernel/Adam/Initializer/zeros/ConstConst*
+valueB
+ *    **
+_class 
+loc:@hidden_layer_a_1/kernel*
+dtype0*
+_output_shapes
+: 
+•
+.hidden_layer_a_1/kernel/Adam/Initializer/zerosFill>hidden_layer_a_1/kernel/Adam/Initializer/zeros/shape_as_tensor4hidden_layer_a_1/kernel/Adam/Initializer/zeros/Const*
+T0*
+
+index_type0**
+_class 
+loc:@hidden_layer_a_1/kernel* 
+_output_shapes
+:
+€€
+À
+hidden_layer_a_1/kernel/Adam
+VariableV2*
+shape:
+€€*
+dtype0* 
+_output_shapes
+:
+€€*
+shared_name **
+_class 
+loc:@hidden_layer_a_1/kernel*
+	container 
+û
+#hidden_layer_a_1/kernel/Adam/AssignAssignhidden_layer_a_1/kernel/Adam.hidden_layer_a_1/kernel/Adam/Initializer/zeros*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel*
+validate_shape(* 
+_output_shapes
+:
+€€
+¢
+!hidden_layer_a_1/kernel/Adam/readIdentityhidden_layer_a_1/kernel/Adam*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel* 
+_output_shapes
+:
+€€
+½
+@hidden_layer_a_1/kernel/Adam_1/Initializer/zeros/shape_as_tensorConst*
+valueB"   €   **
+_class 
+loc:@hidden_layer_a_1/kernel*
+dtype0*
+_output_shapes
+:
+§
+6hidden_layer_a_1/kernel/Adam_1/Initializer/zeros/ConstConst*
+dtype0*
+_output_shapes
+: *
+valueB
+ *    **
+_class 
+loc:@hidden_layer_a_1/kernel
+›
+0hidden_layer_a_1/kernel/Adam_1/Initializer/zerosFill@hidden_layer_a_1/kernel/Adam_1/Initializer/zeros/shape_as_tensor6hidden_layer_a_1/kernel/Adam_1/Initializer/zeros/Const*
+T0*
+
+index_type0**
+_class 
+loc:@hidden_layer_a_1/kernel* 
+_output_shapes
+:
+€€
+Â
+hidden_layer_a_1/kernel/Adam_1
+VariableV2*
+shape:
+€€*
+dtype0* 
+_output_shapes
+:
+€€*
+shared_name **
+_class 
+loc:@hidden_layer_a_1/kernel*
+	container 
+
+%hidden_layer_a_1/kernel/Adam_1/AssignAssignhidden_layer_a_1/kernel/Adam_10hidden_layer_a_1/kernel/Adam_1/Initializer/zeros*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel*
+validate_shape(* 
+_output_shapes
+:
+€€
+¦
+#hidden_layer_a_1/kernel/Adam_1/readIdentityhidden_layer_a_1/kernel/Adam_1*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel* 
+_output_shapes
+:
+€€
+¥
+,hidden_layer_a_1/bias/Adam/Initializer/zerosConst*
+valueB€*    *(
+_class
+loc:@hidden_layer_a_1/bias*
+dtype0*
+_output_shapes	
+:€
+²
+hidden_layer_a_1/bias/Adam
+VariableV2*
+shared_name *(
+_class
+loc:@hidden_layer_a_1/bias*
+	container *
+shape:€*
+dtype0*
+_output_shapes	
+:€
+î
+!hidden_layer_a_1/bias/Adam/AssignAssignhidden_layer_a_1/bias/Adam,hidden_layer_a_1/bias/Adam/Initializer/zeros*
+validate_shape(*
+_output_shapes	
+:€*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias
+—
+hidden_layer_a_1/bias/Adam/readIdentityhidden_layer_a_1/bias/Adam*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias*
+_output_shapes	
+:€
+§
+.hidden_layer_a_1/bias/Adam_1/Initializer/zerosConst*
+dtype0*
+_output_shapes	
+:€*
+valueB€*    *(
+_class
+loc:@hidden_layer_a_1/bias
+´
+hidden_layer_a_1/bias/Adam_1
+VariableV2*
+dtype0*
+_output_shapes	
+:€*
+shared_name *(
+_class
+loc:@hidden_layer_a_1/bias*
+	container *
+shape:€
+ô
+#hidden_layer_a_1/bias/Adam_1/AssignAssignhidden_layer_a_1/bias/Adam_1.hidden_layer_a_1/bias/Adam_1/Initializer/zeros*
+validate_shape(*
+_output_shapes	
+:€*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias
+›
+!hidden_layer_a_1/bias/Adam_1/readIdentityhidden_layer_a_1/bias/Adam_1*
+_output_shapes	
+:€*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias
+µ
+;embed_layer_a/kernel/Adam/Initializer/zeros/shape_as_tensorConst*
+valueB"€      *'
+_class
+loc:@embed_layer_a/kernel*
+dtype0*
+_output_shapes
+:
+Ÿ
+1embed_layer_a/kernel/Adam/Initializer/zeros/ConstConst*
+valueB
+ *    *'
+_class
+loc:@embed_layer_a/kernel*
+dtype0*
+_output_shapes
+: 
+ˆ
++embed_layer_a/kernel/Adam/Initializer/zerosFill;embed_layer_a/kernel/Adam/Initializer/zeros/shape_as_tensor1embed_layer_a/kernel/Adam/Initializer/zeros/Const*
+_output_shapes
+:	€*
+T0*
+
+index_type0*'
+_class
+loc:@embed_layer_a/kernel
+¸
+embed_layer_a/kernel/Adam
+VariableV2*
+shared_name *'
+_class
+loc:@embed_layer_a/kernel*
+	container *
+shape:	€*
+dtype0*
+_output_shapes
+:	€
+î
+ embed_layer_a/kernel/Adam/AssignAssignembed_layer_a/kernel/Adam+embed_layer_a/kernel/Adam/Initializer/zeros*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+validate_shape(*
+_output_shapes
+:	€
+˜
+embed_layer_a/kernel/Adam/readIdentityembed_layer_a/kernel/Adam*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+_output_shapes
+:	€
+·
+=embed_layer_a/kernel/Adam_1/Initializer/zeros/shape_as_tensorConst*
+valueB"€      *'
+_class
+loc:@embed_layer_a/kernel*
+dtype0*
+_output_shapes
+:
+¡
+3embed_layer_a/kernel/Adam_1/Initializer/zeros/ConstConst*
+dtype0*
+_output_shapes
+: *
+valueB
+ *    *'
+_class
+loc:@embed_layer_a/kernel
+
+-embed_layer_a/kernel/Adam_1/Initializer/zerosFill=embed_layer_a/kernel/Adam_1/Initializer/zeros/shape_as_tensor3embed_layer_a/kernel/Adam_1/Initializer/zeros/Const*
+T0*
+
+index_type0*'
+_class
+loc:@embed_layer_a/kernel*
+_output_shapes
+:	€
+º
+embed_layer_a/kernel/Adam_1
+VariableV2*'
+_class
+loc:@embed_layer_a/kernel*
+	container *
+shape:	€*
+dtype0*
+_output_shapes
+:	€*
+shared_name 
+ô
+"embed_layer_a/kernel/Adam_1/AssignAssignembed_layer_a/kernel/Adam_1-embed_layer_a/kernel/Adam_1/Initializer/zeros*
+validate_shape(*
+_output_shapes
+:	€*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_a/kernel
+œ
+ embed_layer_a/kernel/Adam_1/readIdentityembed_layer_a/kernel/Adam_1*
+_output_shapes
+:	€*
+T0*'
+_class
+loc:@embed_layer_a/kernel
+
+)embed_layer_a/bias/Adam/Initializer/zerosConst*
+dtype0*
+_output_shapes
+:*
+valueB*    *%
+_class
+loc:@embed_layer_a/bias
+ª
+embed_layer_a/bias/Adam
+VariableV2*
+dtype0*
+_output_shapes
+:*
+shared_name *%
+_class
+loc:@embed_layer_a/bias*
+	container *
+shape:
+á
+embed_layer_a/bias/Adam/AssignAssignembed_layer_a/bias/Adam)embed_layer_a/bias/Adam/Initializer/zeros*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+:*
+use_locking(
+
+embed_layer_a/bias/Adam/readIdentityembed_layer_a/bias/Adam*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+_output_shapes
+:
+Ÿ
++embed_layer_a/bias/Adam_1/Initializer/zerosConst*
+valueB*    *%
+_class
+loc:@embed_layer_a/bias*
+dtype0*
+_output_shapes
+:
+¬
+embed_layer_a/bias/Adam_1
+VariableV2*
+dtype0*
+_output_shapes
+:*
+shared_name *%
+_class
+loc:@embed_layer_a/bias*
+	container *
+shape:
+ç
+ embed_layer_a/bias/Adam_1/AssignAssignembed_layer_a/bias/Adam_1+embed_layer_a/bias/Adam_1/Initializer/zeros*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+:
+‘
+embed_layer_a/bias/Adam_1/readIdentityembed_layer_a/bias/Adam_1*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+_output_shapes
+:
+©
++embed_layer_b/kernel/Adam/Initializer/zerosConst*
+valueB*    *'
+_class
+loc:@embed_layer_b/kernel*
+dtype0*
+_output_shapes
+
+:
+¶
+embed_layer_b/kernel/Adam
+VariableV2*
+shared_name *'
+_class
+loc:@embed_layer_b/kernel*
+	container *
+shape
+:*
+dtype0*
+_output_shapes
+
+:
+í
+ embed_layer_b/kernel/Adam/AssignAssignembed_layer_b/kernel/Adam+embed_layer_b/kernel/Adam/Initializer/zeros*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+validate_shape(*
+_output_shapes
+
+:
+—
+embed_layer_b/kernel/Adam/readIdentityembed_layer_b/kernel/Adam*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+_output_shapes
+
+:
+«
+-embed_layer_b/kernel/Adam_1/Initializer/zerosConst*
+valueB*    *'
+_class
+loc:@embed_layer_b/kernel*
+dtype0*
+_output_shapes
+
+:
+¸
+embed_layer_b/kernel/Adam_1
+VariableV2*
+shared_name *'
+_class
+loc:@embed_layer_b/kernel*
+	container *
+shape
+:*
+dtype0*
+_output_shapes
+
+:
+ó
+"embed_layer_b/kernel/Adam_1/AssignAssignembed_layer_b/kernel/Adam_1-embed_layer_b/kernel/Adam_1/Initializer/zeros*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+validate_shape(*
+_output_shapes
+
+:
+›
+ embed_layer_b/kernel/Adam_1/readIdentityembed_layer_b/kernel/Adam_1*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+_output_shapes
+
+:
+
+)embed_layer_b/bias/Adam/Initializer/zerosConst*
+valueB*    *%
+_class
+loc:@embed_layer_b/bias*
+dtype0*
+_output_shapes
+:
+ª
+embed_layer_b/bias/Adam
+VariableV2*%
+_class
+loc:@embed_layer_b/bias*
+	container *
+shape:*
+dtype0*
+_output_shapes
+:*
+shared_name 
+á
+embed_layer_b/bias/Adam/AssignAssignembed_layer_b/bias/Adam)embed_layer_b/bias/Adam/Initializer/zeros*
+T0*%
+_class
+loc:@embed_layer_b/bias*
+validate_shape(*
+_output_shapes
+:*
+use_locking(
+
+embed_layer_b/bias/Adam/readIdentityembed_layer_b/bias/Adam*
+T0*%
+_class
+loc:@embed_layer_b/bias*
+_output_shapes
+:
+Ÿ
++embed_layer_b/bias/Adam_1/Initializer/zerosConst*
+valueB*    *%
+_class
+loc:@embed_layer_b/bias*
+dtype0*
+_output_shapes
+:
+¬
+embed_layer_b/bias/Adam_1
+VariableV2*
+shape:*
+dtype0*
+_output_shapes
+:*
+shared_name *%
+_class
+loc:@embed_layer_b/bias*
+	container 
+ç
+ embed_layer_b/bias/Adam_1/AssignAssignembed_layer_b/bias/Adam_1+embed_layer_b/bias/Adam_1/Initializer/zeros*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_b/bias*
+validate_shape(*
+_output_shapes
+:
+‘
+embed_layer_b/bias/Adam_1/readIdentityembed_layer_b/bias/Adam_1*
+T0*%
+_class
+loc:@embed_layer_b/bias*
+_output_shapes
+:
+W
+Adam/learning_rateConst*
+valueB
+ *oƒ:*
+dtype0*
+_output_shapes
+: 
+O
+
+Adam/beta1Const*
+valueB
+ *fff?*
+dtype0*
+_output_shapes
+: 
+O
+
+Adam/beta2Const*
+valueB
+ *w¾?*
+dtype0*
+_output_shapes
+: 
+Q
+Adam/epsilonConst*
+dtype0*
+_output_shapes
+: *
+valueB
+ *wÌ+2
+ş
+-Adam/update_hidden_layer_a_0/kernel/ApplyAdam	ApplyAdamhidden_layer_a_0/kernelhidden_layer_a_0/kernel/Adamhidden_layer_a_0/kernel/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilongradients/AddN_9*
+use_nesterov( *
+_output_shapes
+:	*€*
+use_locking( *
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel
+¢
++Adam/update_hidden_layer_a_0/bias/ApplyAdam	ApplyAdamhidden_layer_a_0/biashidden_layer_a_0/bias/Adamhidden_layer_a_0/bias/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilonBgradients/hidden_layer_a_0/BiasAdd_grad/tuple/control_dependency_1*
+T0*(
+_class
+loc:@hidden_layer_a_0/bias*
+use_nesterov( *
+_output_shapes	
+:€*
+use_locking( 
+ÿ
+-Adam/update_hidden_layer_a_1/kernel/ApplyAdam	ApplyAdamhidden_layer_a_1/kernelhidden_layer_a_1/kernel/Adamhidden_layer_a_1/kernel/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilongradients/AddN_7*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel*
+use_nesterov( * 
+_output_shapes
+:
+€€*
+use_locking( 
+¢
++Adam/update_hidden_layer_a_1/bias/ApplyAdam	ApplyAdamhidden_layer_a_1/biashidden_layer_a_1/bias/Adamhidden_layer_a_1/bias/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilonBgradients/hidden_layer_a_1/BiasAdd_grad/tuple/control_dependency_1*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias*
+use_nesterov( *
+_output_shapes	
+:€*
+use_locking( 
+ï
+*Adam/update_embed_layer_a/kernel/ApplyAdam	ApplyAdamembed_layer_a/kernelembed_layer_a/kernel/Adamembed_layer_a/kernel/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilongradients/AddN_4*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+use_nesterov( *
+_output_shapes
+:	€*
+use_locking( 
+
+(Adam/update_embed_layer_a/bias/ApplyAdam	ApplyAdamembed_layer_a/biasembed_layer_a/bias/Adamembed_layer_a/bias/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilon?gradients/embed_layer_a/BiasAdd_grad/tuple/control_dependency_1*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+use_nesterov( *
+_output_shapes
+:*
+use_locking( 
+î
+*Adam/update_embed_layer_b/kernel/ApplyAdam	ApplyAdamembed_layer_b/kernelembed_layer_b/kernel/Adamembed_layer_b/kernel/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilongradients/AddN_5*
+use_nesterov( *
+_output_shapes
+
+:*
+use_locking( *
+T0*'
+_class
+loc:@embed_layer_b/kernel
+
+(Adam/update_embed_layer_b/bias/ApplyAdam	ApplyAdamembed_layer_b/biasembed_layer_b/bias/Adamembed_layer_b/bias/Adam_1beta1_power/readbeta2_power/readAdam/learning_rate
+Adam/beta1
+Adam/beta2Adam/epsilon?gradients/embed_layer_b/BiasAdd_grad/tuple/control_dependency_1*
+use_nesterov( *
+_output_shapes
+:*
+use_locking( *
+T0*%
+_class
+loc:@embed_layer_b/bias
+á
+Adam/mulMulbeta1_power/read
+Adam/beta1)^Adam/update_embed_layer_a/bias/ApplyAdam+^Adam/update_embed_layer_a/kernel/ApplyAdam)^Adam/update_embed_layer_b/bias/ApplyAdam+^Adam/update_embed_layer_b/kernel/ApplyAdam,^Adam/update_hidden_layer_a_0/bias/ApplyAdam.^Adam/update_hidden_layer_a_0/kernel/ApplyAdam,^Adam/update_hidden_layer_a_1/bias/ApplyAdam.^Adam/update_hidden_layer_a_1/kernel/ApplyAdam*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+_output_shapes
+: 
+
+Adam/AssignAssignbeta1_powerAdam/mul*
+use_locking( *
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+: 
+ã
+
+Adam/mul_1Mulbeta2_power/read
+Adam/beta2)^Adam/update_embed_layer_a/bias/ApplyAdam+^Adam/update_embed_layer_a/kernel/ApplyAdam)^Adam/update_embed_layer_b/bias/ApplyAdam+^Adam/update_embed_layer_b/kernel/ApplyAdam,^Adam/update_hidden_layer_a_0/bias/ApplyAdam.^Adam/update_hidden_layer_a_0/kernel/ApplyAdam,^Adam/update_hidden_layer_a_1/bias/ApplyAdam.^Adam/update_hidden_layer_a_1/kernel/ApplyAdam*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+_output_shapes
+: 
+¡
+Adam/Assign_1Assignbeta2_power
+Adam/mul_1*
+use_locking( *
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+: 
+–
+AdamNoOp^Adam/Assign^Adam/Assign_1)^Adam/update_embed_layer_a/bias/ApplyAdam+^Adam/update_embed_layer_a/kernel/ApplyAdam)^Adam/update_embed_layer_b/bias/ApplyAdam+^Adam/update_embed_layer_b/kernel/ApplyAdam,^Adam/update_hidden_layer_a_0/bias/ApplyAdam.^Adam/update_hidden_layer_a_0/kernel/ApplyAdam,^Adam/update_hidden_layer_a_1/bias/ApplyAdam.^Adam/update_hidden_layer_a_1/kernel/ApplyAdam
+ò
+initNoOp^beta1_power/Assign^beta2_power/Assign^embed_layer_a/bias/Adam/Assign!^embed_layer_a/bias/Adam_1/Assign^embed_layer_a/bias/Assign!^embed_layer_a/kernel/Adam/Assign#^embed_layer_a/kernel/Adam_1/Assign^embed_layer_a/kernel/Assign^embed_layer_b/bias/Adam/Assign!^embed_layer_b/bias/Adam_1/Assign^embed_layer_b/bias/Assign!^embed_layer_b/kernel/Adam/Assign#^embed_layer_b/kernel/Adam_1/Assign^embed_layer_b/kernel/Assign"^hidden_layer_a_0/bias/Adam/Assign$^hidden_layer_a_0/bias/Adam_1/Assign^hidden_layer_a_0/bias/Assign$^hidden_layer_a_0/kernel/Adam/Assign&^hidden_layer_a_0/kernel/Adam_1/Assign^hidden_layer_a_0/kernel/Assign"^hidden_layer_a_1/bias/Adam/Assign$^hidden_layer_a_1/bias/Adam_1/Assign^hidden_layer_a_1/bias/Assign$^hidden_layer_a_1/kernel/Adam/Assign&^hidden_layer_a_1/kernel/Adam_1/Assign^hidden_layer_a_1/kernel/Assign
+Y
+save/filename/inputConst*
+valueB Bmodel*
+dtype0*
+_output_shapes
+: 
+n
+save/filenamePlaceholderWithDefaultsave/filename/input*
+dtype0*
+_output_shapes
+: *
+shape: 
+e
+
+save/ConstPlaceholderWithDefaultsave/filename*
+dtype0*
+_output_shapes
+: *
+shape: 
+ø
+save/SaveV2/tensor_namesConst*«
+value¡BBbeta1_powerBbeta2_powerBembed_layer_a/biasBembed_layer_a/bias/AdamBembed_layer_a/bias/Adam_1Bembed_layer_a/kernelBembed_layer_a/kernel/AdamBembed_layer_a/kernel/Adam_1Bembed_layer_b/biasBembed_layer_b/bias/AdamBembed_layer_b/bias/Adam_1Bembed_layer_b/kernelBembed_layer_b/kernel/AdamBembed_layer_b/kernel/Adam_1Bhidden_layer_a_0/biasBhidden_layer_a_0/bias/AdamBhidden_layer_a_0/bias/Adam_1Bhidden_layer_a_0/kernelBhidden_layer_a_0/kernel/AdamBhidden_layer_a_0/kernel/Adam_1Bhidden_layer_a_1/biasBhidden_layer_a_1/bias/AdamBhidden_layer_a_1/bias/Adam_1Bhidden_layer_a_1/kernelBhidden_layer_a_1/kernel/AdamBhidden_layer_a_1/kernel/Adam_1*
+dtype0*
+_output_shapes
+:
+—
+save/SaveV2/shape_and_slicesConst*G
+value>B<B B B B B B B B B B B B B B B B B B B B B B B B B B *
+dtype0*
+_output_shapes
+:
+™
+save/SaveV2SaveV2
+save/Constsave/SaveV2/tensor_namessave/SaveV2/shape_and_slicesbeta1_powerbeta2_powerembed_layer_a/biasembed_layer_a/bias/Adamembed_layer_a/bias/Adam_1embed_layer_a/kernelembed_layer_a/kernel/Adamembed_layer_a/kernel/Adam_1embed_layer_b/biasembed_layer_b/bias/Adamembed_layer_b/bias/Adam_1embed_layer_b/kernelembed_layer_b/kernel/Adamembed_layer_b/kernel/Adam_1hidden_layer_a_0/biashidden_layer_a_0/bias/Adamhidden_layer_a_0/bias/Adam_1hidden_layer_a_0/kernelhidden_layer_a_0/kernel/Adamhidden_layer_a_0/kernel/Adam_1hidden_layer_a_1/biashidden_layer_a_1/bias/Adamhidden_layer_a_1/bias/Adam_1hidden_layer_a_1/kernelhidden_layer_a_1/kernel/Adamhidden_layer_a_1/kernel/Adam_1*(
+dtypes
+2
+}
+save/control_dependencyIdentity
+save/Const^save/SaveV2*
+T0*
+_class
+loc:@save/Const*
+_output_shapes
+: 
+Š
+save/RestoreV2/tensor_namesConst"/device:CPU:0*«
+value¡BBbeta1_powerBbeta2_powerBembed_layer_a/biasBembed_layer_a/bias/AdamBembed_layer_a/bias/Adam_1Bembed_layer_a/kernelBembed_layer_a/kernel/AdamBembed_layer_a/kernel/Adam_1Bembed_layer_b/biasBembed_layer_b/bias/AdamBembed_layer_b/bias/Adam_1Bembed_layer_b/kernelBembed_layer_b/kernel/AdamBembed_layer_b/kernel/Adam_1Bhidden_layer_a_0/biasBhidden_layer_a_0/bias/AdamBhidden_layer_a_0/bias/Adam_1Bhidden_layer_a_0/kernelBhidden_layer_a_0/kernel/AdamBhidden_layer_a_0/kernel/Adam_1Bhidden_layer_a_1/biasBhidden_layer_a_1/bias/AdamBhidden_layer_a_1/bias/Adam_1Bhidden_layer_a_1/kernelBhidden_layer_a_1/kernel/AdamBhidden_layer_a_1/kernel/Adam_1*
+dtype0*
+_output_shapes
+:
+©
+save/RestoreV2/shape_and_slicesConst"/device:CPU:0*
+dtype0*
+_output_shapes
+:*G
+value>B<B B B B B B B B B B B B B B B B B B B B B B B B B B 
+œ
+save/RestoreV2	RestoreV2
+save/Constsave/RestoreV2/tensor_namessave/RestoreV2/shape_and_slices"/device:CPU:0*|
+_output_shapesj
+h::::::::::::::::::::::::::*(
+dtypes
+2
+£
+save/AssignAssignbeta1_powersave/RestoreV2*
+_output_shapes
+: *
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(
+§
+save/Assign_1Assignbeta2_powersave/RestoreV2:1*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+: *
+use_locking(*
+T0
+²
+save/Assign_2Assignembed_layer_a/biassave/RestoreV2:2*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+:*
+use_locking(*
+T0
+·
+save/Assign_3Assignembed_layer_a/bias/Adamsave/RestoreV2:3*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+:
+¹
+save/Assign_4Assignembed_layer_a/bias/Adam_1save/RestoreV2:4*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_a/bias*
+validate_shape(*
+_output_shapes
+:
+»
+save/Assign_5Assignembed_layer_a/kernelsave/RestoreV2:5*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+validate_shape(*
+_output_shapes
+:	€
+À
+save/Assign_6Assignembed_layer_a/kernel/Adamsave/RestoreV2:6*
+_output_shapes
+:	€*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+validate_shape(
+Â
+save/Assign_7Assignembed_layer_a/kernel/Adam_1save/RestoreV2:7*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_a/kernel*
+validate_shape(*
+_output_shapes
+:	€
+²
+save/Assign_8Assignembed_layer_b/biassave/RestoreV2:8*%
+_class
+loc:@embed_layer_b/bias*
+validate_shape(*
+_output_shapes
+:*
+use_locking(*
+T0
+·
+save/Assign_9Assignembed_layer_b/bias/Adamsave/RestoreV2:9*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_b/bias*
+validate_shape(*
+_output_shapes
+:
+»
+save/Assign_10Assignembed_layer_b/bias/Adam_1save/RestoreV2:10*
+_output_shapes
+:*
+use_locking(*
+T0*%
+_class
+loc:@embed_layer_b/bias*
+validate_shape(
+¼
+save/Assign_11Assignembed_layer_b/kernelsave/RestoreV2:11*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+validate_shape(*
+_output_shapes
+
+:
+Á
+save/Assign_12Assignembed_layer_b/kernel/Adamsave/RestoreV2:12*'
+_class
+loc:@embed_layer_b/kernel*
+validate_shape(*
+_output_shapes
+
+:*
+use_locking(*
+T0
+Ã
+save/Assign_13Assignembed_layer_b/kernel/Adam_1save/RestoreV2:13*
+use_locking(*
+T0*'
+_class
+loc:@embed_layer_b/kernel*
+validate_shape(*
+_output_shapes
+
+:
+»
+save/Assign_14Assignhidden_layer_a_0/biassave/RestoreV2:14*(
+_class
+loc:@hidden_layer_a_0/bias*
+validate_shape(*
+_output_shapes	
+:€*
+use_locking(*
+T0
+À
+save/Assign_15Assignhidden_layer_a_0/bias/Adamsave/RestoreV2:15*(
+_class
+loc:@hidden_layer_a_0/bias*
+validate_shape(*
+_output_shapes	
+:€*
+use_locking(*
+T0
+Â
+save/Assign_16Assignhidden_layer_a_0/bias/Adam_1save/RestoreV2:16*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_0/bias*
+validate_shape(*
+_output_shapes	
+:€
+Ã
+save/Assign_17Assignhidden_layer_a_0/kernelsave/RestoreV2:17**
+_class 
+loc:@hidden_layer_a_0/kernel*
+validate_shape(*
+_output_shapes
+:	*€*
+use_locking(*
+T0
+È
+save/Assign_18Assignhidden_layer_a_0/kernel/Adamsave/RestoreV2:18*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+validate_shape(*
+_output_shapes
+:	*€
+Ê
+save/Assign_19Assignhidden_layer_a_0/kernel/Adam_1save/RestoreV2:19*
+_output_shapes
+:	*€*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_0/kernel*
+validate_shape(
+»
+save/Assign_20Assignhidden_layer_a_1/biassave/RestoreV2:20*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias*
+validate_shape(*
+_output_shapes	
+:€
+À
+save/Assign_21Assignhidden_layer_a_1/bias/Adamsave/RestoreV2:21*
+_output_shapes	
+:€*
+use_locking(*
+T0*(
+_class
+loc:@hidden_layer_a_1/bias*
+validate_shape(
+Â
+save/Assign_22Assignhidden_layer_a_1/bias/Adam_1save/RestoreV2:22*(
+_class
+loc:@hidden_layer_a_1/bias*
+validate_shape(*
+_output_shapes	
+:€*
+use_locking(*
+T0
+Ä
+save/Assign_23Assignhidden_layer_a_1/kernelsave/RestoreV2:23* 
+_output_shapes
+:
+€€*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel*
+validate_shape(
+É
+save/Assign_24Assignhidden_layer_a_1/kernel/Adamsave/RestoreV2:24**
+_class 
+loc:@hidden_layer_a_1/kernel*
+validate_shape(* 
+_output_shapes
+:
+€€*
+use_locking(*
+T0
+Ë
+save/Assign_25Assignhidden_layer_a_1/kernel/Adam_1save/RestoreV2:25* 
+_output_shapes
+:
+€€*
+use_locking(*
+T0**
+_class 
+loc:@hidden_layer_a_1/kernel*
+validate_shape(
+Æ
+save/restore_allNoOp^save/Assign^save/Assign_1^save/Assign_10^save/Assign_11^save/Assign_12^save/Assign_13^save/Assign_14^save/Assign_15^save/Assign_16^save/Assign_17^save/Assign_18^save/Assign_19^save/Assign_2^save/Assign_20^save/Assign_21^save/Assign_22^save/Assign_23^save/Assign_24^save/Assign_25^save/Assign_3^save/Assign_4^save/Assign_5^save/Assign_6^save/Assign_7^save/Assign_8^save/Assign_9"D
+save/Const:0save/control_dependency:0save/restore_all 5 @F8")
+
+word_embed
+
+embed_layer_a/BiasAdd:0"
+intent_placeholder
+
+b:0"¢
+cond_context‘
+¢
+dropout/cond/cond_textdropout/cond/pred_id:0dropout/cond/switch_t:0 *Ô
+dropout/cond/dropout/Floor:0
+#dropout/cond/dropout/Shape/Switch:1
+dropout/cond/dropout/Shape:0
+dropout/cond/dropout/add:0
+dropout/cond/dropout/mul:0
+3dropout/cond/dropout/random_uniform/RandomUniform:0
+)dropout/cond/dropout/random_uniform/max:0
+)dropout/cond/dropout/random_uniform/min:0
+)dropout/cond/dropout/random_uniform/mul:0
+)dropout/cond/dropout/random_uniform/sub:0
+%dropout/cond/dropout/random_uniform:0
+dropout/cond/dropout/rate:0
+dropout/cond/dropout/sub/x:0
+dropout/cond/dropout/sub:0
+dropout/cond/dropout/truediv:0
+dropout/cond/pred_id:0
+dropout/cond/switch_t:0
+hidden_layer_a_0/Relu:00
+dropout/cond/pred_id:0dropout/cond/pred_id:0>
+hidden_layer_a_0/Relu:0#dropout/cond/dropout/Shape/Switch:1
+¾
+dropout/cond/cond_text_1dropout/cond/pred_id:0dropout/cond/switch_f:0*ğ
+dropout/cond/Identity/Switch:0
+dropout/cond/Identity:0
+dropout/cond/pred_id:0
+dropout/cond/switch_f:0
+hidden_layer_a_0/Relu:00
+dropout/cond/pred_id:0dropout/cond/pred_id:09
+hidden_layer_a_0/Relu:0dropout/cond/Identity/Switch:0
+Ğ
+dropout_1/cond/cond_textdropout_1/cond/pred_id:0dropout_1/cond/switch_t:0 *ü
+dropout_1/cond/dropout/Floor:0
+%dropout_1/cond/dropout/Shape/Switch:1
+dropout_1/cond/dropout/Shape:0
+dropout_1/cond/dropout/add:0
+dropout_1/cond/dropout/mul:0
+5dropout_1/cond/dropout/random_uniform/RandomUniform:0
++dropout_1/cond/dropout/random_uniform/max:0
++dropout_1/cond/dropout/random_uniform/min:0
++dropout_1/cond/dropout/random_uniform/mul:0
++dropout_1/cond/dropout/random_uniform/sub:0
+'dropout_1/cond/dropout/random_uniform:0
+dropout_1/cond/dropout/rate:0
+dropout_1/cond/dropout/sub/x:0
+dropout_1/cond/dropout/sub:0
+ dropout_1/cond/dropout/truediv:0
+dropout_1/cond/pred_id:0
+dropout_1/cond/switch_t:0
+hidden_layer_a_1/Relu:04
+dropout_1/cond/pred_id:0dropout_1/cond/pred_id:0@
+hidden_layer_a_1/Relu:0%dropout_1/cond/dropout/Shape/Switch:1
+Ò
+dropout_1/cond/cond_text_1dropout_1/cond/pred_id:0dropout_1/cond/switch_f:0*ş
+ dropout_1/cond/Identity/Switch:0
+dropout_1/cond/Identity:0
+dropout_1/cond/pred_id:0
+dropout_1/cond/switch_f:0
+hidden_layer_a_1/Relu:04
+dropout_1/cond/pred_id:0dropout_1/cond/pred_id:0;
+hidden_layer_a_1/Relu:0 dropout_1/cond/Identity/Switch:0"
+train_op
+
+Adam"
+similarity_op	
+
+Sum:0"+
+intent_embed
+
+embed_layer_b/BiasAdd:0"
+message_placeholder
+
+a:0"ï
+regularization_lossesÕ
+Ò
+4hidden_layer_a_0/kernel/Regularizer/l2_regularizer:0
+4hidden_layer_a_1/kernel/Regularizer/l2_regularizer:0
+1embed_layer_a/kernel/Regularizer/l2_regularizer:0
+1embed_layer_b/kernel/Regularizer/l2_regularizer:0"Õ
+trainable_variables½º
+“
+hidden_layer_a_0/kernel:0hidden_layer_a_0/kernel/Assignhidden_layer_a_0/kernel/read:024hidden_layer_a_0/kernel/Initializer/random_uniform:08
+‚
+hidden_layer_a_0/bias:0hidden_layer_a_0/bias/Assignhidden_layer_a_0/bias/read:02)hidden_layer_a_0/bias/Initializer/zeros:08
+“
+hidden_layer_a_1/kernel:0hidden_layer_a_1/kernel/Assignhidden_layer_a_1/kernel/read:024hidden_layer_a_1/kernel/Initializer/random_uniform:08
+‚
+hidden_layer_a_1/bias:0hidden_layer_a_1/bias/Assignhidden_layer_a_1/bias/read:02)hidden_layer_a_1/bias/Initializer/zeros:08
+‡
+embed_layer_a/kernel:0embed_layer_a/kernel/Assignembed_layer_a/kernel/read:021embed_layer_a/kernel/Initializer/random_uniform:08
+v
+embed_layer_a/bias:0embed_layer_a/bias/Assignembed_layer_a/bias/read:02&embed_layer_a/bias/Initializer/zeros:08
+‡
+embed_layer_b/kernel:0embed_layer_b/kernel/Assignembed_layer_b/kernel/read:021embed_layer_b/kernel/Initializer/random_uniform:08
+v
+embed_layer_b/bias:0embed_layer_b/bias/Assignembed_layer_b/bias/read:02&embed_layer_b/bias/Initializer/zeros:08"‡
+	variablesùö
+“
+hidden_layer_a_0/kernel:0hidden_layer_a_0/kernel/Assignhidden_layer_a_0/kernel/read:024hidden_layer_a_0/kernel/Initializer/random_uniform:08
+‚
+hidden_layer_a_0/bias:0hidden_layer_a_0/bias/Assignhidden_layer_a_0/bias/read:02)hidden_layer_a_0/bias/Initializer/zeros:08
+“
+hidden_layer_a_1/kernel:0hidden_layer_a_1/kernel/Assignhidden_layer_a_1/kernel/read:024hidden_layer_a_1/kernel/Initializer/random_uniform:08
+‚
+hidden_layer_a_1/bias:0hidden_layer_a_1/bias/Assignhidden_layer_a_1/bias/read:02)hidden_layer_a_1/bias/Initializer/zeros:08
+‡
+embed_layer_a/kernel:0embed_layer_a/kernel/Assignembed_layer_a/kernel/read:021embed_layer_a/kernel/Initializer/random_uniform:08
+v
+embed_layer_a/bias:0embed_layer_a/bias/Assignembed_layer_a/bias/read:02&embed_layer_a/bias/Initializer/zeros:08
+‡
+embed_layer_b/kernel:0embed_layer_b/kernel/Assignembed_layer_b/kernel/read:021embed_layer_b/kernel/Initializer/random_uniform:08
+v
+embed_layer_b/bias:0embed_layer_b/bias/Assignembed_layer_b/bias/read:02&embed_layer_b/bias/Initializer/zeros:08
+T
+beta1_power:0beta1_power/Assignbeta1_power/read:02beta1_power/initial_value:0
+T
+beta2_power:0beta2_power/Assignbeta2_power/read:02beta2_power/initial_value:0
+œ
+hidden_layer_a_0/kernel/Adam:0#hidden_layer_a_0/kernel/Adam/Assign#hidden_layer_a_0/kernel/Adam/read:020hidden_layer_a_0/kernel/Adam/Initializer/zeros:0
+¤
+ hidden_layer_a_0/kernel/Adam_1:0%hidden_layer_a_0/kernel/Adam_1/Assign%hidden_layer_a_0/kernel/Adam_1/read:022hidden_layer_a_0/kernel/Adam_1/Initializer/zeros:0
+”
+hidden_layer_a_0/bias/Adam:0!hidden_layer_a_0/bias/Adam/Assign!hidden_layer_a_0/bias/Adam/read:02.hidden_layer_a_0/bias/Adam/Initializer/zeros:0
+œ
+hidden_layer_a_0/bias/Adam_1:0#hidden_layer_a_0/bias/Adam_1/Assign#hidden_layer_a_0/bias/Adam_1/read:020hidden_layer_a_0/bias/Adam_1/Initializer/zeros:0
+œ
+hidden_layer_a_1/kernel/Adam:0#hidden_layer_a_1/kernel/Adam/Assign#hidden_layer_a_1/kernel/Adam/read:020hidden_layer_a_1/kernel/Adam/Initializer/zeros:0
+¤
+ hidden_layer_a_1/kernel/Adam_1:0%hidden_layer_a_1/kernel/Adam_1/Assign%hidden_layer_a_1/kernel/Adam_1/read:022hidden_layer_a_1/kernel/Adam_1/Initializer/zeros:0
+”
+hidden_layer_a_1/bias/Adam:0!hidden_layer_a_1/bias/Adam/Assign!hidden_layer_a_1/bias/Adam/read:02.hidden_layer_a_1/bias/Adam/Initializer/zeros:0
+œ
+hidden_layer_a_1/bias/Adam_1:0#hidden_layer_a_1/bias/Adam_1/Assign#hidden_layer_a_1/bias/Adam_1/read:020hidden_layer_a_1/bias/Adam_1/Initializer/zeros:0
+
+embed_layer_a/kernel/Adam:0 embed_layer_a/kernel/Adam/Assign embed_layer_a/kernel/Adam/read:02-embed_layer_a/kernel/Adam/Initializer/zeros:0
+˜
+embed_layer_a/kernel/Adam_1:0"embed_layer_a/kernel/Adam_1/Assign"embed_layer_a/kernel/Adam_1/read:02/embed_layer_a/kernel/Adam_1/Initializer/zeros:0
+ˆ
+embed_layer_a/bias/Adam:0embed_layer_a/bias/Adam/Assignembed_layer_a/bias/Adam/read:02+embed_layer_a/bias/Adam/Initializer/zeros:0
+
+embed_layer_a/bias/Adam_1:0 embed_layer_a/bias/Adam_1/Assign embed_layer_a/bias/Adam_1/read:02-embed_layer_a/bias/Adam_1/Initializer/zeros:0
+
+embed_layer_b/kernel/Adam:0 embed_layer_b/kernel/Adam/Assign embed_layer_b/kernel/Adam/read:02-embed_layer_b/kernel/Adam/Initializer/zeros:0
+˜
+embed_layer_b/kernel/Adam_1:0"embed_layer_b/kernel/Adam_1/Assign"embed_layer_b/kernel/Adam_1/read:02/embed_layer_b/kernel/Adam_1/Initializer/zeros:0
+ˆ
+embed_layer_b/bias/Adam:0embed_layer_b/bias/Adam/Assignembed_layer_b/bias/Adam/read:02+embed_layer_b/bias/Adam/Initializer/zeros:0
+
+embed_layer_b/bias/Adam_1:0 embed_layer_b/bias/Adam_1/Assign embed_layer_b/bias/Adam_1/read:02-embed_layer_b/bias/Adam_1/Initializer/zeros:0
